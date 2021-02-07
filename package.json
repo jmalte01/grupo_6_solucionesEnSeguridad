@@ -1,0 +1,23 @@
+{
+  "name": "sprint2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmalte01/grupo_6_solucionesEnSeguridad.git"
+  },
+  "author": "Juan, Luis, Ramiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmalte01/grupo_6_solucionesEnSeguridad/issues"
+  },
+  "homepage": "https://github.com/jmalte01/grupo_6_solucionesEnSeguridad#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
