@@ -1,8 +1,8 @@
-#Comenzar a hacer
+# Comenzar a hacer
 
 Administrar mejor nuestro tiempo para estudiar.
 
-#Dejar de hacer
+# Dejar de hacer
 
  Dejar todo para última hora
 
@@ -10,7 +10,7 @@ Administrar mejor nuestro tiempo para estudiar.
 
 Estudiar y practicar los contenidos de las clase
 
-#Menos de
+# Menos de
 
 Usar zips para intercambiar códigos
 
