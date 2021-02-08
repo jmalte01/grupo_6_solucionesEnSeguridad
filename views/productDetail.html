@@ -1,12 +1,14 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SES: Soluciones en Seguridad</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/footer.css">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/producto.css">
 </head>
 <body>
     <header class="menu">
@@ -16,9 +18,10 @@
             <nav>
                 <ul>
                     <li><a href="/">Inicio</a></li>
+                    <li><a href="#">Catálogo</a></li>
                     <li><a href="/register">Registro</a></li>
                     <li><a href="/login">Iniciar Sesión</a></li>
-                    <li><a href="/productCart">Ver carrito <span><i class="fa fa-shopping-cart"></i></span></a></li>
+                    <li><a href="/productCart">Ver carrito <span><i class="fa fa-shopping-cart"></i></span></a></li>                   
                 </ul>
             </nav>
             <label for="checkbox">
@@ -26,13 +29,33 @@
             </label>
         </div>
     </header>
+    <br/>
     <section>
-        <div class="wrapper">
-            <h1>An Awesome Title Here</h1>
-            <p>
-                This tutorial will guide you through creating a responsive dropdown navigation using CSS only, with the help of flexbox and the "checkbox-hack".
-            </p>
-        </div>
+      <h2 class="ofertas">Detalles del producto</h2>
+    </section>
+    <section class="productos">
+        <div class="flex-container">
+            <div class="flex-item flex-item-1">
+                
+                <figure> <img src="/img/r1.jpg" /></figure>
+                
+            
+            </div>
+            <div class="flex-item flex-item-2">
+                
+                <div class="detalles">
+                    <h2>Cámara infrarroja aérea</h2>
+                    <p class="descripcion"> Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red. ... Detecta movimiento y sonido, y envía avisos de alarma por correo electrónico y notificaciones directas al teléfono mediante la APP de Foscam. Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores.</p>
+                    <br />
+                    <p class="precio"><b> Precio 1400$</b></p>
+                    <br />
+                    <button class="agregar">Agregar al carrito</button>
+                </div>
+            
+            </div>
+            
+          </div>
+
     </section>
     <footer>
         <picture>
