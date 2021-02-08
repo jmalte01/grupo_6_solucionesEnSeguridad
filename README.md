@@ -28,6 +28,7 @@ Paleta de colores : https://coolors.co/e7ecef-274c77-6096ba-a3cef1-8b8c89
 
 ## Tableros de trabajo de cada sprint
 https://trello.com/b/FBz7aXwU/sprint-n1-g6
+
 https://trello.com/b/657ByEtn/sprint-n2-g6
 
 ## Referentes
