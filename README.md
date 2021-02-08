@@ -26,6 +26,10 @@ Carrito de compras: https://wireframe.cc/pro/pp/7d0c917c0408356
 
 Paleta de colores : https://coolors.co/e7ecef-274c77-6096ba-a3cef1-8b8c89
 
+## Tableros de trabajo de cada sprint
+https://trello.com/b/FBz7aXwU/sprint-n1-g6
+https://trello.com/b/657ByEtn/sprint-n2-g6
+
 ## Referentes
 http://identitronics.online/ --> Es una referencia interesante en relación al modo de presentación de la información de los productos, además de la variedad de productos que ofrece dentro de la rama.
 
