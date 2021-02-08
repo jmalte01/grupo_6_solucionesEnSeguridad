@@ -21,14 +21,14 @@ app.get('/login',(req,res)=>{
     res.sendFile (path.resolve (__dirname, './views/login.html'))
 });
 
-app.get('/register',(req,res)=>{
-    res.sendFile (path.resolve (__dirname, './views/register.html'))
+app.get('/registro',(req,res)=>{
+    res.sendFile (path.resolve (__dirname, './views/registro.html'))
 });
 
-app.get('/productCart',(req,res)=>{
-    res.sendFile (path.resolve (__dirname, './views/productCart.html'))
+app.get('/carrito',(req,res)=>{
+    res.sendFile (path.resolve (__dirname, './views/carrito.html'))
 });
 
-app.get('/productDetail',(req,res)=>{
-    res.sendFile (path.resolve (__dirname, './views/productDetail.html'))
+app.get('/producto',(req,res)=>{
+    res.sendFile (path.resolve (__dirname, './views/producto.html'))
 });
