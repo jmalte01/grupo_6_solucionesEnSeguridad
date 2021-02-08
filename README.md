@@ -25,6 +25,7 @@ Fórmularios de Registro y Login: https://www.figma.com/file/sX065cgbM6tak5fRlrd
 Carrito de compras: https://wireframe.cc/pro/pp/7d0c917c0408356
 
 Paleta de colores : https://coolors.co/e7ecef-274c77-6096ba-a3cef1-8b8c89
+
 Referentes
 http://identitronics.online/ --> Es una referencia interesante en relación al modo de presentación de la información de los productos, además de la variedad de productos que ofrece dentro de la rama.
 
