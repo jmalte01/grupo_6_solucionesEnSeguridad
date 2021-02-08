@@ -35,7 +35,8 @@
   }
   
   .login form input[type="text"],
-  .login form input[type="password"] {
+  .login form input[type="password"],
+  .login form input[type="email"] {
     width: 60%;
     padding: 0.4rem 0.2rem;
     border: none;
@@ -79,7 +80,6 @@
     font-size: 0.8rem;
     text-decoration: none;
   }
-  
   @media all and (max-width: 369px) {
     .login form {
       width: 95%;
