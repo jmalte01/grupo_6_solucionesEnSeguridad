@@ -21,6 +21,7 @@ app.get('/login',(req,res)=>{
     res.sendFile(path.resolve(__dirname, './views/login.html'));
 });
 
+// <<<<<<< HEAD
 app.get('/register',(req,res)=>{
     res.sendFile(path.resolve(__dirname, './views/register.html'));
 });
@@ -44,3 +45,16 @@ app.post('/registerMessage',(req,res)=>{
 
 
 // Agregar ruta a catálogo
+
+app.get('/registro',(req,res)=>{
+    res.sendFile (path.resolve (__dirname, './views/registro.html'))
+});
+
+app.get('/carrito',(req,res)=>{
+    res.sendFile (path.resolve (__dirname, './views/carrito.html'))
+});
+
+app.get('/producto',(req,res)=>{
+    res.sendFile (path.resolve (__dirname, './views/producto.html'))
+});
+
