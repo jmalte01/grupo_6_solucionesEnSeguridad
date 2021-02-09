@@ -1,0 +1,66 @@
+img{
+    max-width: 100px;
+}
+main h1{
+    text-align: left;
+    font-size: 50px;
+    margin-left: 5%;
+    padding: none;
+}
+
+.imagenes img{
+    max-width: 100px;
+    max-height: 100px;
+}
+
+
+.selec{display: inline-block;cursor: pointer;user-select: none;font-size: 25px;padding: 5px;}
+.selec.selectmenos{margin-right: 8px;font-size: 30px}
+.selec.selecmas{margin-left: 8px;}
+.quantity-input{border: none;border: none;padding: 8px;text-align: center;width: 50px;outline: none;display: inline-block;position: relative;top: -4px;}
+.cajaselect{display: inline-block;margin:auto;padding-right: 15px;padding-top: 10px;background-color: #274C77;border-radius: 10px;}
+
+
+#txtalileft{
+    text-align: left;
+}
+
+table{
+    width: 90%;
+    margin: 15 auto;
+    background-color: #e7ecefs;
+}
+
+.articulo td{
+    max-height: 50px;    
+    border-top: solid 2px #274C77;
+    padding: 5px 5px;
+    text-align: center;
+    background-color: #e7ecef;
+    max-height: 100px
+}
+
+.bin i{
+    padding: 15px; ;
+    border-radius: 50%;
+    background-color: #8b8c89;
+}
+
+#tabla-total{
+    position: absolute;right: 0;
+    margin-top: 10px;
+}
+
+#tabla-total td{
+    width: 100px;
+}
+
+#tabla-productos{
+    margin: 20px auto;
+}
+
+.nule-table{
+    border-top: none;
+    background-color: rgba(0,0,0,0);
+    text-align: center;
+}
