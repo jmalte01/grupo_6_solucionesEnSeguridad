@@ -1,0 +1,27 @@
+<div class="flex-item flex-item-1">                
+    <figure> <img src="/img/<%= productos.productImg %>" /></figure>              
+
+</div>
+<div class="flex-item flex-item-2">
+    <!--
+        tomamos el producto que nos envia el response de la ruta /producDetail/:id
+        y lo renderizamos accediendo a sus propiedades
+    -->
+    <div class="detalles">
+        <h2><%= productos.productName %></h2>
+        <% if (productos.productDetail) { %>
+            <ul>
+            <% productos.productDetail.forEach( el => { %>
+                <li><%= el%></li>
+            <% }) %>
+            </ul>
+        <% } else { %>
+            <p class="descripcion"> <%= productos.productDescription %></p>
+        <% } %>
+        <br />
+        <p class="precio"><b>$ <%= productos.productPrice %>.-</b></p>
+        <br />
+        <button class="agregar">Agregar al carrito</button>
+    </div>
+    
+</div>

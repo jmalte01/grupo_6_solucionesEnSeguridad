@@ -14,6 +14,12 @@ header {
   background-color: #274c77;
   padding: 10px 0;
 }
+
+a {
+  color: #274c77;
+  text-decoration: none;
+}
+
 .menu-wrap {
   display: flex;
   justify-content: space-between;

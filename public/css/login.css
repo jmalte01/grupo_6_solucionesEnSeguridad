@@ -9,6 +9,11 @@
     background-color: #a3cef1;
   }
   
+  a {
+    text-decoration: none;
+    color: #274c77;
+  }
+  
   .login {
     width: 80%;
     margin: 2rem auto;

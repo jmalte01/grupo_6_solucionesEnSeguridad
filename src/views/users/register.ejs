@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
+    <title>SES: Soluciones en Seguridad</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <!-- <link rel="stylesheet" href="/css/estilos_globales.css"> -->
-    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/css/footer.css">
-</head>
+</head> -->
+<%- include('../partials/head') %>
 <body>
-    <header class="menu">
+    <!--<header class="menu">
         <div class="menu-wrap">
             <img src="/img/logo.jpg" class="logo-img" alt="Logo">
+            <input type="checkbox" id="checkbox">
             <nav>
                 <ul>
                     <li><a href="/">Inicio</a></li>
@@ -27,34 +28,33 @@
                 <i class="fa fa-bars menu-icon"></i>
             </label>
         </div>
-    </header>
+    </header> -->
+    <%- include('../partials/header') %>
     <section>
-        <div class="hero">
-          <img src="img/slider_01.png" />
-      </div>
-      </section>
-    <section>
-            <main class="login">
-                <h3>Ingresa tus datos:</h3>
-                <form action="/" method="POST" class="">
-                    <input type="text" placeholder="Nombre de Usuario" required>
-                    <input type="password" placeholder="Contraseña" required>
-                    <input type="submit" value="Enviar" class="btn">
-                    <p><input type="checkbox" name="" id="remember">Recuerdame</p>
-                    <div class="flex">
-                        <a class="form_anchors" href="/register">Registrarme</a>
-                        <a class="form_anchors" href="/forgot_password">Olvidé mi contraseña</a>
-                    </div>
-                </form>
-            </main>
+      <div class="hero">
+        <img src="img/slider_01.png" />
+    </div>
     </section>
-    <footer>
+    <section>
+        <main class="login">
+            <h3>Registrarme</h3>
+            <form action="/registerMessage" method="POST" class="">
+                <input type="email" placeholder="tucorreo@email.com" required>
+                <input type="password" placeholder="Contraseña" required>
+                <input type="password" placeholder="Repetir Contraseña" required>
+                <input type="submit" value="Enviar" class="btn">
+                <a class="form_anchors" href="/login">Ya tengo cuenta</a>
+            </form>
+        </main>
+    </section>
+    <!-- <footer>
         <picture>
             <img src="" alt="">
         </picture>
         <p>Copyright&copy; SES 2021 - Todos los derechos reservados.</p>
         <a href="mailto:soluciones@ses.com.ar"><span class="iconify" data-icon="carbon:email" data-inline="false"></span>soluciones@ses.com.ar</a>
         <a href="tel:+5491152526565"><span class="iconify" data-icon="bi:phone" data-inline="false"></span>+54 9 11 5252-6565</a>
-    </footer>
+    </footer> -->
+    <%- include('../partials/footer') %>
 </body>
 </html>
