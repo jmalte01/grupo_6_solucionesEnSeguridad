@@ -62,7 +62,7 @@ app.post('/',(req,res)=>{
 
 
 
-// Agregar ruta a catálogo
+// Agregar ruta a catálogo y a "olvidé mi contraseña"
 
 app.get('/registro',(req,res)=>{
     res.sendFile (path.resolve (__dirname, './views/registro.html'))
@@ -72,7 +72,7 @@ app.get('/carrito',(req,res)=>{
     res.sendFile (path.resolve (__dirname, './views/carrito.html'))
 });
 
-app.get('/producto',(req,res)=>{
-    res.sendFile (path.resolve (__dirname, './views/producto.html'))
+app.get('/productDetail',(req,res)=>{
+    res.sendFile (path.resolve (__dirname, './views/productDetail.html'))
 });
 */
