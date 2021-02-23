@@ -1,14 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SES: Soluciones en Seguridad</title>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
-        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-        <link rel="stylesheet" href="/css/index.css">
-        <link rel="stylesheet" href="/css/footer.css">
-    </head> -->
    <%- include('../partials/head'); %>
 <body>
     <%- include('../partials/header'); %>
@@ -37,7 +28,7 @@
                              <h3><%= producto.productName %></h3>
                              <p class="descripcion"><%= producto.productDescription %></p>
                              <p class="precio">$ <%= producto.productPrice %></p>
-                             <button class="btn btn-primary">Ver detalles</button>
+                             <button class="btn">Ver detalles</button>
                          </div>
                         </a>
                      </div>
@@ -48,150 +39,3 @@
     <%- include('../partials/footer'); %>
 </body>
 </html>
-
-
-
-
-
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SES: Soluciones en Seguridad</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
-    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/footer.css">
-</head>
-<body>
-    <header class="menu">
-        <div class="menu-wrap">
-            <img src="/img/logo.jpg" class="logo-img" alt="Logo">
-            <input type="checkbox" id="checkbox">
-            <nav>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/catalogue">Catálogo</a></li>
-                    <li><a href="/register">Registro</a></li>
-                    <li><a href="/login">Iniciar Sesión</a></li>
-                    <li><a href="/productCart">Ver carrito <span><i class="fa fa-shopping-cart"></i></span></a></li>
-                </ul>
-            </nav>
-            <label for="checkbox">
-                <i class="fa fa-bars menu-icon"></i>
-            </label>
-        </div>
-    </header>
-    <section>
-      <div class="hero">
-        <img src="img/slider_01.png" />
-    </div>
-    </section>
-    <section class="buscar">
-      <label for="checkbox">
-        <input class="busqueda" type="text" placeholder="Buscar productos" name="Buscar productos">
-        <i class="fa fa-search"></i>
-    </label>
-    </section>
-    <br/>
-    <section>
-      <h2 class="ofertas">Ofertas</h2>
-    </section>
-    <section class="productos">
-        <div class="flex-container">
-            <div class="flex-item flex-item-1">
-               <a href="producto"> 
-                <figure> <img src="/img/r1.jpg" /></figure>
-                <div class="detalles">
-                    <h3>Cámara infrarroja aérea</h3>
-                    <p class="descripcion"> Descripción de la cámara infrarroja.</p>
-                    <p class="precio"> 1400$</p>
-                </div>
-               </a>
-            </div>
-            <div class="flex-item flex-item-2">
-                
-                <figure> <img src="/img/r2.jpg" /></figure>
-                <div class="detalles">
-                    <h3>Cámara con sensor de movimiento</h3>
-                    <p class="descripcion"> Descripción de la cámara con sensor de movimiento.</p>
-                    <p class="precio"> 3750$</p>
-                </div>
-            
-            </div>
-            <div class="flex-item flex-item-3">
-
-                <figure> <img src="/img/r3.jpg" /></figure>
-                <div class="detalles">
-                    <h3>Cámara web espía</h3>
-                    <p class="descripcion"> Descripción de la cámara web espia.</p>
-                    <p class="precio"> 3980$</p>
-                </div>
-
-            </div>
-            <div class="flex-item flex-item-4">
-                
-                <figure> <img src="/img/r4.jpg" /></figure>
-                <div class="detalles">
-                    <h3>Cámara de vigilancia HD</h3>
-                    <p class="descripcion"> Descripción de la cámara de vigilancia HD.</p>
-                    <p class="precio"> 4090$</p>
-                </div>
-            
-            </div>
-            <div class="flex-item flex-item-1">
-                
-                <figure> <img src="/img/r5.jpg" /></figure>
-                <div class="detalles">
-                    <h3>Lector de tarjetas</h3>
-                    <p class="descripcion"> Descripción del lector de tarjetas.</p>
-                    <p class="precio"> 6000$</p>
-                </div>
-            
-            </div>
-            <div class="flex-item flex-item-2">
-                
-                <figure> <img src="/img/r6.jpg" /></figure>
-                <div class="detalles">
-                    <h3>Cámara infrarroja terrestre</h3>
-                    <p class="descripcion"> Descripción de la cámara infrarroja terrestre.</p>
-                    <p class="precio"> 1400$</p>
-                </div>
-            </div>
-            <div class="flex-item flex-item-3">
-                
-                <figure> <img src="/img/r7.jpg" /></figure>
-                <div class="detalles">
-                    <h3>Combo de camaras más decodificador</h3>
-                    <p class="descripcion"> Ocho cámaras mas deco</p>
-                    <p class="precio"> 12200$</p>
-                </div>
-
-            </div>
-            <div class="flex-item flex-item-4">
-                
-                <figure> <img src="/img/r8.jpg" /></figure>
-                <div class="detalles">
-                    <h3>Lector de huellas dactilares</h3>
-                    <p class="descripcion"> Descripción del lector de huellas dactilares.</p>
-                    <p class="precio"> 7100$</p>
-                </div>
-            
-            </div>
-          </div>
-    </section>
-    <footer>
-        <picture>
-            <img src="" alt="">
-        </picture>
-        <p>Copyright&copy; SES 2021 - Todos los derechos reservados.</p>
-        <a href="mailto:soluciones@ses.com.ar"><span class="iconify" data-icon="carbon:email" data-inline="false"></span>soluciones@ses.com.ar</a>
-        <a href="tel:+5491152526565"><span class="iconify" data-icon="bi:phone" data-inline="false"></span>+54 9 11 5252-6565</a>
-    </footer>
-</body>
-</html>
- -->
