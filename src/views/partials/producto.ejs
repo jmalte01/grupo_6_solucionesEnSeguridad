@@ -1,5 +1,5 @@
 <div class="flex-item flex-item-1">                
-    <figure> <img src="/img/<%= productos.productImg %>" /></figure>              
+    <figure> <img src="/img/<%= product.productImg %>" /></figure>              
 
 </div>
 <div class="flex-item flex-item-2">
@@ -8,18 +8,19 @@
         y lo renderizamos accediendo a sus propiedades
     -->
     <div class="detalles">
-        <h2><%= productos.productName %></h2>
-        <% if (productos.productDetail) { %>
+        <p><%= product.category %></p>
+        <h2><%= product.productName %></h2>
+        <% if (product.productDetail) { %>
             <ul>
-            <% productos.productDetail.forEach( el => { %>
+            <% product.productDetail.forEach( el => { %>
                 <li><%= el%></li>
             <% }) %>
             </ul>
         <% } else { %>
-            <p class="descripcion"> <%= productos.productDescription %></p>
+            <p class="descripcion"> <%= product.productDescription %></p>
         <% } %>
         <br />
-        <p class="precio"><b>$ <%= productos.productPrice %>.-</b></p>
+        <p class="precio"><b>$ <%= product.productPrice %>.-</b></p>
         <br />
         <button class="agregar">Agregar al carrito</button>
     </div>

@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Juan",
+        "Apellido": "Altemir",
+        "correo": "juan.altemir@gmail.com",
+        "password": "admin123",
+        "avatar": "anakin.jpg",
+        "role": 1
+    }
+]

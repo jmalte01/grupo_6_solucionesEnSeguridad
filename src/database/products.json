@@ -1,0 +1,132 @@
+[
+    {
+      "id": 1,
+      "productName": "Cámara infrarroja aérea",
+      "productDescription": "Infrarrojo super potente",
+      "productDetail": [
+        "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
+        "Detecta movimiento y sonido, y envía avisos de alarma por correo electrónico y notificaciones directas al teléfono mediante la APP de Foscam.",
+        "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
+      ],
+      "category": "Video Vigilancia",
+      "productPrice": 1400,
+      "productImg": "r1.jpg"
+    },
+    {
+      "id": 2,
+      "productName": "Cámara con sensor de movimiento",
+      "productDescription": "Descripción de la cámara con sensor de movimiento.",
+      "productDetail": [
+        "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
+        "Detecta movimiento y sonido.",
+        "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
+      ],
+      "category": "Video Vigilancia",
+      "productPrice": 3750,
+      "productImg": "r2.jpg"
+    },
+    {
+      "id": 3,
+      "productName": "Cámara web espía",
+      "productDescription": "Descripción de la cámara web espia.",
+      "productDetail": [
+        "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
+        "Detecta movimiento y sonido.",
+        "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
+      ],
+      "category": "Video Vigilancia",
+      "productPrice": 3980,
+      "productImg": "r3.jpg"
+    },
+    {
+      "id": 4,
+      "productName": "Cámara de vigilancia HD",
+      "productDescription": "Descripción de la cámara de vigilancia HD.",
+      "productDetail": [
+        "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
+        "Detecta movimiento y sonido.",
+        "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
+      ],
+      "category": "Video Vigilancia",
+      "productPrice": 4090,
+      "productImg": "r4.jpg"
+    },
+    {
+      "id": 5,
+      "productName": "Lector de tarjetas",
+      "productDescription": "Descripción del lector de tarjetas.",
+      "productDetail": [
+        "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
+        "Detecta movimiento y sonido.",
+        "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
+      ],
+      "category": "Video Vigilancia",
+      "productPrice": 6000,
+      "productImg": "r5.jpg"
+    },
+    {
+      "id": 6,
+      "productName": "Cámara infrarroja terrestre",
+      "productDescription": "Descripción de la cámara infrarroja terrestre.",
+      "productDetail": [
+        "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
+        "Detecta movimiento y sonido.",
+        "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
+      ],
+      "category": "Video Vigilancia",
+      "productPrice": 1400,
+      "productImg": "r6.jpg"
+    },
+    {
+      "id": 7,
+      "productName": "Combo de camaras más decodificador",
+      "productDescription": "Ocho cámaras mas deco",
+      "productDetail": [
+        "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
+        "Detecta movimiento y sonido.",
+        "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
+      ],
+      "category": "Video Vigilancia",
+      "productPrice": 12200,
+      "productImg": "r7.jpg"
+    },
+    {
+      "id": 8,
+      "productName": "Lector de huellas dactilares",
+      "productDescription": "Descripción del lector de huellas dactilares.",
+      "productDetail": [
+        "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
+        "Detecta movimiento y sonido.",
+        "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
+      ],
+      "category": "Video Vigilancia",
+      "productPrice": 7100,
+      "productImg": "r8.jpg"
+    },
+    {
+      "id": 9,
+      "productName": "Producto 1",
+      "productDescription": "Producto",
+      "productDetail": [
+        "Detalles 1",
+        "Detalles 2",
+        "Detalles 3"
+      ],
+      "category": "Video Vigilancia",
+      "productPrice": "4500",
+      "productImg": "producto-1615247883866.jpg"
+    },
+    {
+      "id": 10,
+      "productName": "Producto2",
+      "productDescription": "procuto otrio",
+      "productDetail": [
+        "Detalles 1",
+        "Detalles 2",
+        "Detalles 3"
+      ],
+      "category": "NAS Storage",
+      "productPrice": "8520",
+      "productImg": "producto-1615247933541.jpg"
+    }
+  ]

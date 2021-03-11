@@ -1,25 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const productsController = require('../controllers/productsController');
+const userControllers = require('../controllers/userControllers');
 
+//ruta raiz de los productos/inicio
+// ruta que muestra el registro de un usuario
+router.get('/register', userControllers.register);
+// ruta que muestra el login de un usuario
+router.get('/login', userControllers.login);
 
-router.get('/catalogo', productsController.catalogo);
-router.get('/productDetail/:id?', productsController.detalle);
-router.get('/admin/createProduct/:id?', productsController.crear);
-router.get('/admin/editProduct/:id?', productsController.editar);
+/*******************************************
+// ruta que muestra la recuperación de contraseña
+router.get('/chau', userControllers.hola);
+ *******************************************/
+
+// ruta que muestra la recuperación de contraseña
+router.get('/forgotPassword', userControllers.forgot);
+
+// ruta que muestra la recuperación de contraseña
+router.post('/forgotPasswordSent', userControllers.forgotMessage);
+
+// ruta que muestra la recuperación de contraseña
+router.post('/registerMessage', userControllers.registerMessage);
 
 
 module.exports = router;
-
-
-
-/* let express = require('express');
-const productosController = require ('../controllers/productosController.js');
-
-let router = express.Router();
-
-router.get('/:idProducto', productosController.detalle);
-
-router.get('/:idProducto/comentarios/:idComentario?', productosController.detalleComentarios);
-
-module.exports = router; */
