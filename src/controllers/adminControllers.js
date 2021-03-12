@@ -31,7 +31,7 @@ const adminControllers = {
             id: ultimoProducto.id + 1,
             productName: req.body.articulo,
             productDescription: req.body.descripcion,
-            productDetail: ["Detalles 1", "Detalles 2", "Detalles 3"],
+            productDetail: (req.body.detail).split(","),
             category: req.body.categoria,
             productPrice:req.body.precio,
             productImg: req.file.filename
@@ -46,15 +46,44 @@ const adminControllers = {
     editar: (req, res) => { 
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/products.json')));
         const data = parseInt(req.params.id);
+        console.log(data)
         let producto = productos.find(producto => producto.id === data);
         res.render(path.resolve(__dirname, `../views/admin/editProduct`), {
             producto,
             styles: ["index.css", "footer.css", "editProduct.css"],
             title: "Editar producto"
         })
-       }
-       
-}
+    },
+    update: (req, res) => {
+        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/products.json')));
+        let id = parseInt(req.params.id);
+        console.log("req.params.id: " + id);
+		let producto = productos.find((producto) => producto.id === id);
+        //fs.unlinkSync(path.resolve(__dirname,'../../public/img/'+producto.productImg));
+
+        let productosActualizados = productos.map(producto => {
+            if(producto.id==id){
+                producto.productName = req.body.articulo,
+                producto.productDescription = req.body.descripcion,
+                producto.productDetail = (req.body.detail).split(","),
+                producto.category = req.body.categoria,
+                producto.productPrice = req.body.precio
+                //producto.productImg = req.file.filename
+            } 
+            return producto
+        });
+
+        fs.writeFileSync(path.resolve(__dirname,'../database/products.json'), JSON.stringify(productosActualizados, null, 4));
+        res.redirect('/admin/administrar');
+    },
+    delete: (req, res) => {
+        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/products.json')));
+        let id = parseInt(req.params.id);
+		let productodelete = productos.filter((x) => x.id !== id);
+        fs.writeFileSync(path.resolve(__dirname,'../database/products.json'), JSON.stringify(productodelete, null, 4));
+        res.redirect('/admin/administrar');
+    }
+};
 
 module.exports = adminControllers;
 

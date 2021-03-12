@@ -16,14 +16,14 @@
     <%- include('../partials/header') %>
     <main>
         <h2>Agregar un nuevo producto</h2>
-        <form action="/newProduct" method="POST" id="formulario">
+        <form action="/admin/editar/<%= producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id="formulario">
             <div>
                 <img src="/img/<%= producto.productImg %>" alt="Imagen de <%= producto.productName %>">
-                <input type="file" name="">
+                <input type="file" name="imagen">
             </div>
             <div>
                 <label for="articulo">Artículo</label>
-                <input type="text" value="<%= producto.productName %>">
+                <input type="text" name="articulo" value="<%= producto.productName %>">
                 <label for="descripcion">Descripcion</label>
                 <input type="text" name="descripcion" value="<%= producto.productDescription %>"/>
                 <label for="detail">Detalle de producto</label>
@@ -42,7 +42,7 @@
                 <!-- <label for="Color">Color</label>
                 <input type="text" value="color"> -->
                 <label for="precio">Precio</label>
-                <input type="text" value="<%= producto.productPrice %>">
+                <input type="text" name="precio" value="<%= producto.productPrice %>">
                 <button type="submit">Guardar cambios</button>
             </div>
         </form>

@@ -13,6 +13,10 @@ const publicPath = path.resolve(__dirname, './public');
 
 app.use(express.static(publicPath));
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.set('puerto', process.env.PORT || "3001");
 
