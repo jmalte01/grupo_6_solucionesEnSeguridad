@@ -158,6 +158,12 @@ img {
   }
 }
 
+#producto{
+  
+  border: 3px solid #6096ba;
+  border-radius: 15px;
+}
+
 .detalles {
   text-align: center;
   color: #274c77;

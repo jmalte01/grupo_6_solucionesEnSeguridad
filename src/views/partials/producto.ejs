@@ -1,28 +1,28 @@
-<div class="flex-item flex-item-1">                
-    <figure> <img src="/img/<%= product.productImg %>" /></figure>              
-
-</div>
-<div class="flex-item flex-item-2">
-    <!--
-        tomamos el producto que nos envia el response de la ruta /producDetail/:id
-        y lo renderizamos accediendo a sus propiedades
-    -->
-    <div class="detalles">
-        <p><%= product.category %></p>
-        <h2><%= product.productName %></h2>
-        <% if (product.productDetail) { %>
-            <ul>
-            <% product.productDetail.forEach( el => { %>
-                <li><%= el%></li>
-            <% }) %>
-            </ul>
-        <% } else { %>
-            <p class="descripcion"> <%= product.productDescription %></p>
-        <% } %>
-        <br />
-        <p class="precio"><b>$ <%= product.productPrice %>.-</b></p>
-        <br />
-        <button class="agregar">Agregar al carrito</button>
+<body id="producto">
+    <div class="flex-item">                
+        <figure> <img src="/img/<%= product.productImg %>" /></figure>
     </div>
-    
-</div>
+    <div class="flex-item">
+        <!--
+            tomamos el producto que nos envia el response de la ruta /producDetail/:id
+            y lo renderizamos accediendo a sus propiedades
+        -->
+        <div class="detalles">
+            <p><%= product.category %></p>
+            <h2><%= product.productName %></h2>
+            <% if (product.productDetail) { %>
+                <ul>
+                <% product.productDetail.forEach( el => { %>
+                    <li><%= el%></li>
+                <% }) %>
+                </ul>
+            <% } else { %>
+                <p class="descripcion"> <%= product.productDescription %></p>
+            <% } %>
+            <br />
+            <p class="precio"><b>$ <%= product.productPrice %>.-</b></p>
+            <br />
+            <button class="agregar">Agregar al carrito</button>
+        </div>
+    </div>    
+</body>
