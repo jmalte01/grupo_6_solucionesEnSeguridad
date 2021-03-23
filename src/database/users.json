@@ -1,8 +1,9 @@
 [
     {
-        "name": "Juan",
-        "Apellido": "Altemir",
-        "correo": "juan.altemir@gmail.com",
+        "id": 1,
+        "first_name": "Juan",
+        "last_name": "Altemir",
+        "email": "juan.altemir@gmail.com",
         "password": "admin123",
         "avatar": "anakin.jpg",
         "role": 1

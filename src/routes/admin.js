@@ -4,6 +4,7 @@ const multer = require('multer');
 const path = require('path');
 
 const adminControllers = require('../controllers/adminControllers');
+const acceso = require('../middlewares/acceso')
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -14,13 +15,13 @@ var storage = multer.diskStorage({
   }
 })
    
-  const upload = multer({ storage })
+const upload = multer({ storage })
 
 
-router.get('/admin/administrar', adminControllers.index);
-router.get('/admin/crear', adminControllers.crear);
+router.get('/admin/administrar', acceso, adminControllers.index);
+router.get('/admin/crear', acceso, adminControllers.crear);
 router.post('/admin/crear',upload.single('imagen'), adminControllers.save);
-router.get('/admin/editar/:id?', adminControllers.editar);
+router.get('/admin/editar/:id?', acceso, adminControllers.editar);
 router.put('/admin/editar/:id',upload.single('imagen'), adminControllers.update);
 router.delete('/admin/delete/:id', adminControllers.delete);
 module.exports = router;

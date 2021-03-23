@@ -39,10 +39,12 @@
     <section>
         <main class="login">
             <h3>Registrarme</h3>
-            <form action="/registerMessage" method="POST" class="">
-                <input type="email" placeholder="tucorreo@email.com" required>
-                <input type="password" placeholder="Contraseña" required>
-                <input type="password" placeholder="Repetir Contraseña" required>
+            <form action="/register" method="POST" enctype="multipart/form-data">
+                <p><span><input type="text" name="first_name" placeholder="Nombre" required></span><span><input type="text" name="last_name" placeholder="Apellido" required></span></p>
+                <input type="email" name="email" placeholder="tucorreo@email.com" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="repeatPassword" placeholder="Repetir Contraseña" required>
+                <input type="file" name="avatar">
                 <input type="submit" value="Enviar" class="btn">
                 <a class="form_anchors" href="/login">Ya tengo cuenta</a>
             </form>
