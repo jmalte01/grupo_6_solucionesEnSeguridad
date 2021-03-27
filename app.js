@@ -3,11 +3,15 @@ const path = require('path');
 const methodOverride = require('method-override');
 
 const app = express();
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 const mainRoutes = require('./src/routes/main');
 const productRoutes = require('./src/routes/products');
 const users = require('./src/routes/users');
 const admin = require('./src/routes/admin');
+const acceso = require('./src/middlewares/acceso');
+const mantenimiento = require('./src/middlewares/mantenimiento');
 
 const publicPath = path.resolve(__dirname, './public');
 
@@ -30,11 +34,26 @@ Rutas implementadas: index, login, register, detalle de producto,
 
 olvidé contraseña, olvidé contraseña mensaje
 ***********************************************/
+
+
+app.use(session({
+    secret : 'topSecret',
+    resave: true,
+    saveUninitialized: true,
+}))
+
+
+//Aqui coloco el Middleware para activar lo referido a las cookies
+app.use(cookieParser());
+
+//Middleware de aplicación que se encarga de controlar si el usuario está logueado o no.
+app.use(acceso);
+
+
 app.use(mainRoutes);
 app.use(users);
 app.use(productRoutes);
 app.use(admin);
-
 
 /**********************************************    
 Faltan implementar: carrito, mensaje de registro, catálogo, 
