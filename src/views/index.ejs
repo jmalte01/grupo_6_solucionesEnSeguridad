@@ -26,9 +26,12 @@
                         <a href="productDetail/<%= producto.id %>"> 
                          <figure> <img src="/img/<%= producto.productImg %>" /></figure>
                          <div class="detalles">
-                             <h3><%= producto.productName %></h3>
-                             <p class="descripcion"><%= producto.productDescription %></p>
-                             <p class="precio">$ <%= producto.productPrice %></p>
+                            <h3 class="nombre"><%= producto.productName %></h3>
+                            <p class="descripcion"><%= producto.productDescription %></p>
+                            <div class="price-container">
+                              <button class="verMas">Ver detalles</button>
+                              <p class="precio">$ <%= producto.productPrice %></p>
+                            </div>
                          </div>
                         </a>
                      </div>

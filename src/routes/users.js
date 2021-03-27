@@ -74,7 +74,7 @@ const validacionesRegistro = [
 //ruta raiz de los productos/inicio
 // ruta que muestra el registro de un usuario
 router.get('/register', userControllers.register);
-router.post('/register',validacionesLogin ,userControllers.create);
+router.post('/register' ,userControllers.create);
 // ruta que muestra el login de un usuario
 router.get('/login', userControllers.login);
 router.post('/login', userControllers.access);

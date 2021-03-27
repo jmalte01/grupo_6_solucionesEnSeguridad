@@ -27,8 +27,10 @@
                          <div class="detalles">
                              <h3><%= producto.productName %></h3>
                              <p class="descripcion"><%= producto.productDescription %></p>
-                             <p class="precio">$ <%= producto.productPrice %></p>
-                             <button class="btn">Ver detalles</button>
+                             <div class="bottom-container">
+                              <button class="verMas">Ver detalles</button>
+                              <p class="precio">$ <%= producto.productPrice %></p>
+                            </div>
                          </div>
                         </a>
                      </div>

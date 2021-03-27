@@ -13,8 +13,10 @@ const userControllers = {
             })
         },
         access: (req, res) => {
+            console.log("access OK")
             const errors = validationResult(req);             //return res.send(errors.mapped());
             if(errors.isEmpty()){
+                console.log("if errors")
                 let usersDatabase =JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
                 let userLogin = usersDatabase.find(usuario => usuario.email == req.body.email)              //return res.send(userLogin);
                 delete userLogin.password;
@@ -24,7 +26,10 @@ const userControllers = {
                 }
                 return res.redirect('/');
             }else{
-              res.render(path.resolve(__dirname, '../views/users/login'),{errors:errors.mapped(),old:req.body});        
+                console.log("else errors")
+                res.render(path.resolve(__dirname, '../views/users/login'),{
+                    errors:errors.mapped(),old:req.body,
+                });        
             }
         },
         logout: (req,res) =>{
