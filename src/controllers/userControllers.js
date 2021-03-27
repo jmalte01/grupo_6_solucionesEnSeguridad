@@ -15,16 +15,19 @@ const userControllers = {
         access: (req, res) => {
             const errors = validationResult(req);             //return res.send(errors.mapped());
             if(errors.isEmpty()){
-                let usersDatabase =JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
-                let userLogin = usersDatabase.find(usuario => usuario.email == req.body.email)              //return res.send(userLogin);
+                let usersDatabase = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
+                let userLogin = usersDatabase.find(usuario => usuario.email == req.body.email);           //return res.send(userLogin);
                 delete userLogin.password;
                 req.session.usuario = userLogin;
                 if(req.body.recordarme){
-                    res.cookie('email',userLogin.email,{maxAge: 1000 * 60 * 60 * 24})
+                    res.cookie('email', userLogin.email,{maxAge: 1000 * 60 * 60 * 24})
                 }
                 return res.redirect('/');
             }else{
-              res.render(path.resolve(__dirname, '../views/users/login'),{errors:errors.mapped(),old:req.body});        
+              res.render(path.resolve(__dirname, '../views/users/login'),{
+                errors:errors.mapped(), old:req.body,
+                styles: ["login.css", "footer.css", "index.css"],
+                title: "Iniciar Sesión"});        
             }
         },
         logout: (req,res) =>{
@@ -40,18 +43,19 @@ const userControllers = {
         },
         create: (req, res) => {
             let errors = validationResult(req);
-            let usersFile = fs.readFileSync(path.resolve(__dirname, '../database/users.json'), {
-                encoding: 'utf-8'
-            });
+            
             if (errors.isEmpty()) {
                 let user = {
                     first_name: req.body.first_name,
-                    first_name: req.body.last_name,
+                    last_name: req.body.last_name,
                     email: req.body.email,
                     password: bcrypt.hashSync(req.body.password, 10),
                     avatar:  req.file ? req.file.filename : '',
                     role: 1
                 }
+                let usersFile = fs.readFileSync(path.resolve(__dirname, '../database/users.json'), {
+                    encoding: 'utf-8'
+                });
                 let users;
                 if (usersFile == "") {
                     users = [];
@@ -64,7 +68,9 @@ const userControllers = {
                 res.redirect('/registerMessage');
             } else {
                 return res.render(path.resolve(__dirname, '../views/users/register'), {
-                    errors: errors.errors,  old: req.body
+                    errors: errors.errors,  old: req.body,
+                    styles: ["register.css", "footer.css", "index.css"],
+                    title: "Registrarme"
                 });
             }
         },

@@ -5,8 +5,9 @@ const path = require('path');
 const fs = require('fs')
 const bcrypt = require('bcryptjs');
 const { body } = require('express-validator');
+const isRemember = require('../middlewares/isRemember');
 
-const userControllers = require('../controllers/userControllers');
+const userControllers = require(path.resolve(__dirname,'../controllers/userControllers'));
 
 let usersDatabase =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')))
 
@@ -23,16 +24,14 @@ const upload= multer({ storage });
 
 
 const validacionesLogin = [
-    body('email').isEmail().withMessage('Agregar un email válido'),
-    body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
-    body('email').custom( (value  ) =>{
+    body('email').custom( ( value ) =>{
         for (let i = 0; i < usersDatabase.length; i++) {
             if (usersDatabase[i].email == value) {
                 return true    
             }
         }
         return false
-    }).withMessage('Usuario no se encuentra registrado...'),
+    }).withMessage('Usuario no se encuentra registrado...'), //simple12
     body('password').custom( (value, {req}) =>{
         for (let i = 0; i < usersDatabase.length; i++) {
             if (usersDatabase[i].email == req.body.email) {
@@ -44,8 +43,9 @@ const validacionesLogin = [
             }
         }
         
-    }).withMessage('Usurio o contraseña no coinciden'),
+    }).withMessage('Usuario o contraseña no coinciden'),
 ]
+
 
 const validacionesRegistro = [
     body('first_name').isLength({
@@ -55,8 +55,8 @@ const validacionesRegistro = [
         }).withMessage('El campo apellido no puede estar vacío'),
     body('email').isEmail().withMessage('Agregar un email válido'),
     body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
-    body('confirm_password').isLength({min: 6 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres'),
-    body('confirm_password').custom((value, {req}) =>{
+    body('repeatPassword').isLength({min: 6 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres'),
+    body('repeatPassword').custom((value, {req}) =>{
         if(req.body.password == value ){
             return true    
         }else{
@@ -74,10 +74,12 @@ const validacionesRegistro = [
 //ruta raiz de los productos/inicio
 // ruta que muestra el registro de un usuario
 router.get('/register', userControllers.register);
-router.post('/register',validacionesLogin ,userControllers.create);
+router.post('/register',upload.single('avatar'), validacionesRegistro, userControllers.create);
 // ruta que muestra el login de un usuario
-router.get('/login', userControllers.login);
-router.post('/login', userControllers.access);
+router.get('/login', isRemember, userControllers.login);
+router.post('/login', validacionesLogin, userControllers.access);
+router.get('/logout', userControllers.logout);
+
 
 /*******************************************
 // ruta que muestra la recuperación de contraseña
@@ -91,7 +93,7 @@ router.get('/forgotPassword', userControllers.forgot);
 router.post('/forgotPasswordSent', userControllers.forgotMessage);
 
 // ruta que muestra la recuperación de contraseña
-router.post('/registerMessage', userControllers.registerMessage);
+router.get('/registerMessage', userControllers.registerMessage);
 
 
 module.exports = router;
