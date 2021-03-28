@@ -1,19 +1,5 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="es">
-<!-- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SES: Soluciones en Seguridad</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
-    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/register.css">
-    <link rel="stylesheet" href="/css/footer.css">
-</head> -->
-=======
 <html lang="en">
->>>>>>> e42b8dfd729f3f85aa6f54834880a9416825fecc
 <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
@@ -25,8 +11,6 @@
     <section>
         <main class="login">
             <h3>Registrarme</h3>
-<<<<<<< HEAD
-<<<<<<< HEAD
             <% if(typeof(errors) != 'undefined'){%>
                 <ul class="alert alert-danger">
                    <% errors.forEach(error => { %>
@@ -35,22 +19,11 @@
                  </ul>
              <%}%>    
             <form action="/register" method="POST" enctype="multipart/form-data">
-                <span><input type="text" name="first_name" placeholder="Nombre" required></span><span><input type="text" name="last_name" placeholder="Apellido" required></span>
+                <p><span><input type="text" name="first_name" placeholder="Nombre" required></span><span><input type="text" name="last_name" placeholder="Apellido" required></span></p>
                 <input type="email" name="email" placeholder="tucorreo@email.com" required>
                 <input type="password" name="password" placeholder="Contraseña" required>
                 <input type="password" name="repeatPassword" placeholder="Repetir Contraseña" required>
                 <input type="file" name="avatar">
-=======
-=======
->>>>>>> parent of b695305 (registro y login en progreso)
-            <form action="/registerMessage" method="POST" class="">
-                <input type="email" placeholder="tucorreo@email.com" required>
-                <input type="password" placeholder="Contraseña" required>
-                <input type="password" placeholder="Repetir Contraseña" required>
-<<<<<<< HEAD
->>>>>>> parent of b695305 (registro y login en progreso)
-=======
->>>>>>> parent of b695305 (registro y login en progreso)
                 <input type="submit" value="Enviar" class="btn">
                 <a class="form_anchors" href="/login">Ya tengo cuenta</a>
             </form>

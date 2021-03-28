@@ -1,5 +1,10 @@
 const path = require('path');
-    
+const fs = require('fs');    
+const multer = require('multer');
+const bcrypt = require('bcryptjs');
+
+const { validationResult } = require('express-validator');
+
 const userControllers = {
         login: (req, res) => {
            return  res.render(path.resolve(__dirname, '../views/users/login'), {
@@ -7,20 +12,11 @@ const userControllers = {
             title: "Iniciar Sesión"
             })
         },
-<<<<<<< HEAD
-<<<<<<< HEAD
         access: (req, res) => {
-            console.log("access OK")
             const errors = validationResult(req);             //return res.send(errors.mapped());
             if(errors.isEmpty()){
-<<<<<<< HEAD
-                console.log("if errors")
-                let usersDatabase =JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
-                let userLogin = usersDatabase.find(usuario => usuario.email == req.body.email)              //return res.send(userLogin);
-=======
                 let usersDatabase = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
                 let userLogin = usersDatabase.find(usuario => usuario.email == req.body.email);           //return res.send(userLogin);
->>>>>>> e42b8dfd729f3f85aa6f54834880a9416825fecc
                 delete userLogin.password;
                 req.session.usuario = userLogin;
                 if(req.body.recordarme){
@@ -28,17 +24,10 @@ const userControllers = {
                 }
                 return res.redirect('/');
             }else{
-<<<<<<< HEAD
-                console.log("else errors")
-                res.render(path.resolve(__dirname, '../views/users/login'),{
-                    errors:errors.mapped(),old:req.body,
-                });        
-=======
               res.render(path.resolve(__dirname, '../views/users/login'),{
                 errors:errors.mapped(), old:req.body,
                 styles: ["login.css", "footer.css", "index.css"],
                 title: "Iniciar Sesión"});        
->>>>>>> e42b8dfd729f3f85aa6f54834880a9416825fecc
             }
         },
         logout: (req,res) =>{
@@ -46,16 +35,10 @@ const userControllers = {
             res.cookie('email',null,{maxAge: -1});
             res.redirect('/')
         },
-=======
->>>>>>> parent of b695305 (registro y login en progreso)
-=======
->>>>>>> parent of b695305 (registro y login en progreso)
         register: (req, res) => {
                 return  res.render(path.resolve(__dirname, '../views/users/register'), {
                  styles: ["register.css", "footer.css", "index.css"],
                  title: "Registrarme"
-<<<<<<< HEAD
-<<<<<<< HEAD
             })
         },
         create: (req, res) => {
@@ -90,30 +73,25 @@ const userControllers = {
                     title: "Registrarme"
                 });
             }
-=======
-             })
->>>>>>> parent of b695305 (registro y login en progreso)
-=======
-             })
->>>>>>> parent of b695305 (registro y login en progreso)
         },
         forgot: (req, res) => {
             return  res.render(path.resolve(__dirname, '../views/users/forgotPassword'), {
-             styles: ["register.css", "footer.css", "index.css"],
-             title: "Recuperar contraseña"
+                styles: ["register.css", "footer.css", "index.css"],
+                title: "Recuperar contraseña"
             })
         },
         forgotMessage: (req, res) => {
             return  res.render(path.resolve(__dirname, '../views/users/forgotPasswordSent'), {
-             styles: ["register.css", "footer.css", "index.css"],
-             title: "Recuperar contraseña"
+                styles: ["register.css", "footer.css", "index.css"],
+                title: "Recuperar contraseña"
             })
         },
         registerMessage: (req, res) => {
             return  res.render(path.resolve(__dirname, '../views/users/registerMessage'), {
-             styles: ["register.css", "footer.css", "index.css"],
-             title: "Registrarme"
+                styles: ["register.css", "footer.css", "index.css"],
+                title: "Registrarme contraseña"
             })
         }
+
     }
     module.exports = userControllers;

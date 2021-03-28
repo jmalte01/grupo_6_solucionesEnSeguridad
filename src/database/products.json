@@ -1,15 +1,28 @@
 [
     {
+        "id": 1,
+        "productName": "Cámara infrarroja aérea",
+        "productDescription": "Infrarrojo super potente",
+        "productDetail": [
+            "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
+            "Detecta movimiento y sonido, y envía avisos de alarma por correo electrónico y notificaciones directas al teléfono mediante la APP de Foscam.",
+            "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
+        ],
+        "category": "Video Vigilancia",
+        "productPrice": 1400,
+        "productImg": "r1.jpg"
+    },
+    {
         "id": 2,
-        "productName": "Cámara con sensor de movimiento",
+        "productName": "camara jvbsdvcbsdl",
         "productDescription": "Descripción de la cámara con sensor de movimiento.",
         "productDetail": [
             "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
             "Detecta movimiento y sonido.",
-            "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
+            "Permite grabación en tarjeta",
+            " en servidores FTP y es compatible con nuestros grabadores."
         ],
-        "category": "Video Vigilancia",
-        "productPrice": 3750,
+        "productPrice": "3750",
         "productImg": "r2.jpg"
     },
     {
@@ -89,5 +102,31 @@
         "category": "Video Vigilancia",
         "productPrice": 7100,
         "productImg": "r8.jpg"
+    },
+    {
+        "id": 9,
+        "productName": "Producto 1",
+        "productDescription": "Producto",
+        "productDetail": [
+            "Detalles 1",
+            "Detalles 2",
+            "Detalles 3"
+        ],
+        "category": "Video Vigilancia",
+        "productPrice": "4500",
+        "productImg": "producto-1615247883866.jpg"
+    },
+    {
+        "id": 10,
+        "productName": "Producto2",
+        "productDescription": "procuto otrio",
+        "productDetail": [
+            "Detalles 1",
+            "Detalles 2",
+            "Detalles 3"
+        ],
+        "category": "NAS Storage",
+        "productPrice": "8520",
+        "productImg": "producto-1615247933541.jpg"
     }
 ]

@@ -1,5 +1,4 @@
 [
-<<<<<<< HEAD
   {
     "id": 1,
     "first_name": "Juan",
@@ -53,14 +52,4 @@
     "avatar": "foto-1616865496413.jpg",
     "role": 1
   }
-=======
-    {
-        "name": "Juan",
-        "Apellido": "Altemir",
-        "correo": "juan.altemir@gmail.com",
-        "password": "admin123",
-        "avatar": "anakin.jpg",
-        "role": 1
-    }
->>>>>>> parent of b695305 (registro y login en progreso)
 ]
