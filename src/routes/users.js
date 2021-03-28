@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 <<<<<<< HEAD
+<<<<<<< HEAD
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs')
@@ -85,6 +86,15 @@ router.get('/login', isRemember, userControllers.login);
 router.post('/login', validacionesLogin, userControllers.access);
 router.get('/logout', userControllers.logout);
 
+=======
+const userControllers = require('../controllers/userControllers');
+
+//ruta raiz de los productos/inicio
+// ruta que muestra el registro de un usuario
+router.get('/register', userControllers.register);
+// ruta que muestra el login de un usuario
+router.get('/login', userControllers.login);
+>>>>>>> parent of b695305 (registro y login en progreso)
 =======
 const userControllers = require('../controllers/userControllers');
 

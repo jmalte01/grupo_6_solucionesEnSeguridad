@@ -8,6 +8,7 @@ const userControllers = {
             })
         },
 <<<<<<< HEAD
+<<<<<<< HEAD
         access: (req, res) => {
             console.log("access OK")
             const errors = validationResult(req);             //return res.send(errors.mapped());
@@ -47,10 +48,13 @@ const userControllers = {
         },
 =======
 >>>>>>> parent of b695305 (registro y login en progreso)
+=======
+>>>>>>> parent of b695305 (registro y login en progreso)
         register: (req, res) => {
                 return  res.render(path.resolve(__dirname, '../views/users/register'), {
                  styles: ["register.css", "footer.css", "index.css"],
                  title: "Registrarme"
+<<<<<<< HEAD
 <<<<<<< HEAD
             })
         },
@@ -86,6 +90,9 @@ const userControllers = {
                     title: "Registrarme"
                 });
             }
+=======
+             })
+>>>>>>> parent of b695305 (registro y login en progreso)
 =======
              })
 >>>>>>> parent of b695305 (registro y login en progreso)
