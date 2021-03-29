@@ -7,13 +7,13 @@
     <section>
       <div class="hero">
         <img src="img/slider_01.png" />
-    </div>
+      </div>
     </section>
     <section class="buscar">
-      <label for="checkbox">
-        <input class="busqueda" type="text" placeholder="Buscar productos" name="Buscar productos">
-        <i class="fa fa-search"></i>
-    </label>
+      <form action="/search" method="POST" class="busqueda">
+        <input type="text" placeholder="Buscar productos" name="Buscar">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
     </section>
     <br/>
     <section>
@@ -22,19 +22,19 @@
     <section class="productos">
         <div class="flex-container">
             <% productos.forEach( producto => { %>
-                    <div class="flex-item flex-item-1">
-                        <a href="productDetail/<%= producto.id %>"> 
-                         <figure> <img src="/img/<%= producto.productImg %>" /></figure>
-                         <div class="detalles">
-                            <h3 class="nombre"><%= producto.productName %></h3>
+                <div class="flex-item">
+                    <a href="productDetail/<%= producto.id %>"><img src="/img/<%= producto.productImg %>" /></a>
+                    <div class="detalles">
+                        <div class="descripcion-container">
+                            <a href="productDetail/<%= producto.id %>"><h3 class="nombre"><%= producto.productName %></h3></a>
                             <p class="descripcion"><%= producto.productDescription %></p>
-                            <div class="price-container">
-                              <button class="verMas">Ver detalles</button>
-                              <p class="precio">$ <%= producto.productPrice %></p>
-                            </div>
-                         </div>
-                        </a>
-                     </div>
+                        </div> 
+                        <div class="precio-container">
+                            <a href="productDetail/<%= producto.id %>"><button class="verMas">Ver Mas</button></a>
+                            <p class="precio">$ <%= producto.productPrice %></p>
+                        </div>
+                    </div>
+                </div>
             <% }); %>
         </div>
     </section>

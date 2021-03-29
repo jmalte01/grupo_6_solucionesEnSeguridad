@@ -112,11 +112,28 @@ img {
 .buscar {
   display: flex;
   justify-content: center;
+  background-color: #274c77;
+  padding: 0.5em 0;
 }
 
-.busqueda {
+.busqueda{
+  background-color: white;
+  padding: 0.2em 0.5em;
+  border-radius: 10px;
+}
+
+.busqueda input {
+  outline: none; border:none; background-color: none;
   height: 30px;
-  width: 300px;
+  width: 90vw;
+}
+
+.busqueda button{
+  outline: none; border: none; background-color: white;
+}
+
+.busqueda i{
+  color: #8b8c89;
 }
 
 /*main */
@@ -166,6 +183,7 @@ img {
   box-shadow: 0px 0px 12px 0px rgba(54,54,54,0.75);
   -webkit-box-shadow: 0px 0px 12px 0px rgba(54,54,54,0.75);
   -moz-box-shadow: 0px 0px 12px 0px rgba(54,54,54,0.75);
+  transition: all 0.5s;
 }
 
 /* tablet */
@@ -174,6 +192,9 @@ img {
     flex: calc(50% - 1em);
     margin-left: 0.5em;
     margin-right: 0.5em;
+  }
+    .busqueda input {
+    width: 40vw;
   }
 }
 
@@ -187,7 +208,7 @@ img {
 .detalles {
   text-align: left;
   color: #274c77;
-  padding: 0.5rem;
+  padding: 0.5em;
 }
 
 .nombre{
@@ -195,24 +216,38 @@ img {
 }
 
 .descripcion{
-  font-size: 16px
-}
-.price-container{
+  font-size: 16px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  align-self: flex-end;
+}
+
+.precio-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color:white;
+  border-radius: 10px;
+  height: 30px
+  
 }
 
 .verMas{
   border: none; outline: none; 
   background-color: white;
-  padding: 5px 10px;
+  padding: 0 5px;
   border-radius: 10px;
   border: 3px #6096ba solid;
-  font-weight: 400;
+  font-weight: 600;
+  color: #6096ba;
 }
-.precio {
 
-  text-align: left;
+.verMas:hover{
+  background-color: #6096ba;
+  color: white;
+  transition: all 0.3s;
+}
+
+.precio {
+  margin-right: 0.5em;
 }
