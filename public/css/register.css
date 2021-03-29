@@ -48,6 +48,7 @@
     border: none;
     border-bottom: 1px solid #274c77;
     background-color: #f2f2f2;
+    min-width: 315px;
   }
   
   .login p {
