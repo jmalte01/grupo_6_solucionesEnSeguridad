@@ -14,13 +14,12 @@
     },
     {
         "id": 2,
-        "productName": "camara jvbsdvcbsdl",
+        "productName": "Camara Foscam C2",
         "productDescription": "Descripción de la cámara con sensor de movimiento.",
         "productDetail": [
             "Cámara IP fija Foscam C2 es una cámara de interior con conexión WIFI y cable de red.",
             "Detecta movimiento y sonido.",
-            "Permite grabación en tarjeta",
-            " en servidores FTP y es compatible con nuestros grabadores."
+            "Permite grabación en tarjeta, en servidores FTP y es compatible con nuestros grabadores."
         ],
         "productPrice": "3750",
         "productImg": "r2.jpg"
@@ -118,8 +117,8 @@
     },
     {
         "id": 10,
-        "productName": "Producto2",
-        "productDescription": "procuto otrio",
+        "productName": "Producto 2",
+        "productDescription": "Otro producto",
         "productDetail": [
             "Detalles 1",
             "Detalles 2",
