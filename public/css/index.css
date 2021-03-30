@@ -26,7 +26,7 @@ a {
   padding: 0 15px;
 }
 .logo-img {
-  max-height: 50px;
+  max-height: 60px;
 }
 .menu-icon {
   font-size: 2.4em;
@@ -220,6 +220,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 75px;
 }
 
 .precio-container{
