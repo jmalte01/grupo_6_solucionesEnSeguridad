@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-let userDatabase =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
+const db = require('../database/models');
+let usersDatabase = db.User;
+
+// let userDatabase =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
 
 module.exports = (req, res, next) => {
     if (req.session.usuario) {

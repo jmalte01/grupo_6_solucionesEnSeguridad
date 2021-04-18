@@ -6,10 +6,12 @@ const fs = require('fs')
 const bcrypt = require('bcryptjs');
 const { body } = require('express-validator');
 const isRemember = require('../middlewares/isRemember');
+const db = require('../database/models');
+let usersDatabase = db.User;
 
 const userControllers = require(path.resolve(__dirname,'../controllers/userControllers'));
 
-let usersDatabase =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')))
+// let usersDatabase =  JSON.parse(path.resolve(__dirname, '../database/users.js'))
 
 
 const storage = multer.diskStorage({

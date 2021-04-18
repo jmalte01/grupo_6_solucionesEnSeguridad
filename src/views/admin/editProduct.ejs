@@ -32,17 +32,23 @@
                 <select name="categoria">
                     <option disabled selected><%= producto.category %></option>
                     <option value="Video Vigilancia">Video Vigilancia</option>
-                    <option value="Accesos">Accesos</option>
-                    <option value="Conectividad">Conectividad</option>
-                    <option value="NAS Storage">NAS Storage</option>
-                    <option value="Deteccion">Deteccion</option>
-                    <option value="Portería">Portería</option>
-                    <option value="Accesorios">Accesorios</option>
+                </select>
+                <label for="subcategoria">Subcategoria</label>
+                <select name="subcategoria" id="">
+                    <option value="Video Vigilancia">Video Vigilancia</option>
                 </select>
                 <!-- <label for="Color">Color</label>
                 <input type="text" value="color"> -->
                 <label for="precio">Precio</label>
                 <input type="text" name="precio" value="<%= producto.productPrice %>">
+                <label for="descuento">Descuento</label>
+                <input type="text" name="descuento">
+                <label for="stock">Stock</label>
+                <input type="text" name="stock">
+                <label for="status">Estado</label>
+                <input type="text" name="status">
+                <label for="sku">Codigo de barra</label>
+                <input type="text" name="sku">
                 <button type="submit">Guardar cambios</button>
             </div>
         </form>

@@ -1,6 +1,11 @@
-// const productos = require("../database/products.json");
 const path = require('path');
 const fs = require('fs');
+const db = require('../database/models');
+const dbProduct = db.Product;
+const dbCategory = db.Category;
+const dbSubCategory = db.Subcategory;
+
+
 
 const productosController = {
     
@@ -10,23 +15,27 @@ const productosController = {
     ***********************************************/
 
     detalle: (req, res) => { 
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/products.json')));
-        const product = productos[req.params.id - 1]
-        res.render(path.resolve(__dirname, '../views/products/productDetail'), {
-        product,
-         styles: ["producto.css", "footer.css"],
-         title: product.name
-        })
+        
+        dbProduct.findByPk(req.params.id
+            , {
+            include: ["categoria"]
+        }
+        )
+        .then (producto => {res.render(path.resolve(__dirname, '../views/products/productDetail'), {
+            producto: producto,
+            styles: ["producto.css", "footer.css"],
+            title: producto.product_name
+        })})
+        .catch(error => res.send(error))
     },
-
     catalogo: (req, res) => { 
-
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/products.json')));
-        res.render(path.resolve(__dirname, '../views/products/catalog'), {
-        productos,
-         styles: ["index.css", "footer.css"],
-         title: "Catálogo de productos"
-     });
+        dbProduct.findAll()
+        .then ((productos)=>{res.render(path.resolve(__dirname, '../views/products/catalog'), {
+            productos: productos,
+            styles: ["index.css", "footer.css"],
+            title: "Catálogo de productos"
+        })})
+        .catch(error => res.send(error))
     }
 
     // detalleComentarios: function(req, res) {

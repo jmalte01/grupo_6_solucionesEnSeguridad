@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-let userDatabase =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
+// let userDatabase =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
+const db = require('../database/models');
+let usersDatabase = db.User;
 
 
 // Falta acomodar este middleware para que funcione el recordar usuario

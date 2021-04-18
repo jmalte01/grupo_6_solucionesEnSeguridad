@@ -19,11 +19,11 @@ const upload = multer({ storage })
 
 
 router.get('/admin/administrar', userLogged, adminControllers.index);
-router.get('/admin/crear', userLogged, adminControllers.crear);
-router.post('/admin/crear',upload.single('imagen'), adminControllers.save);
-router.get('/admin/editar/:id?', userLogged, adminControllers.editar);
-router.put('/admin/editar/:id',upload.single('imagen'), adminControllers.update);
-router.delete('/admin/delete/:id', adminControllers.delete);
+// router.get('/admin/crear', userLogged, adminControllers.crear);
+// router.post('/admin/crear',upload.single('imagen'), adminControllers.save);
+// router.get('/admin/editar/:id?', userLogged, adminControllers.editar);
+// router.put('/admin/editar/:id',upload.single('imagen'), adminControllers.update);
+// router.delete('/admin/delete/:id', adminControllers.delete);
 module.exports = router;
 
 
