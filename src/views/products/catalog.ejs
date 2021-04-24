@@ -22,15 +22,15 @@
         <div class="flex-container">
             <% productos.forEach( producto => { %>
                 <div class="flex-item">
-                    <a href="productDetail/<%= producto.id %>"><img src="/img/<%= producto.productImg %>" /></a>
+                    <a href="productDetail/<%= producto.id %>"><img src="/img/<%= producto.image %>" /></a>
                     <div class="detalles">
                         <div class="descripcion-container">
                             <a href="productDetail/<%= producto.id %>"><h3 class="nombre"><%= producto.productName %></h3></a>
-                            <p class="descripcion"><%= producto.productDescription %></p>
+                            <p class="descripcion"><%= producto.description %></p>
                         </div> 
                         <div class="precio-container">
                             <button class="verMas">Ver detalles</button>
-                            <p class="precio">$ <%= producto.productPrice %></p>
+                            <p class="precio">$ <%= producto.price %></p>
                       </div>
                     </div>
                 </div>

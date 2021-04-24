@@ -24,8 +24,8 @@ module.exports =  function(sequelize, dataTypes) {
 
             Category.hasMany(models.Product,
                 {
-                    as: "producto",
-                    foreingKey: "category_id"
+                    as: "products",
+                    foreingKey: "categoryId"
                 }
                 );
 

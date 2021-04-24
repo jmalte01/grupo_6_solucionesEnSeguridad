@@ -15,16 +15,14 @@ const productosController = {
     ***********************************************/
 
     detalle: (req, res) => { 
-        
-        dbProduct.findByPk(req.params.id
-            , {
-            include: ["categoria"]
-        }
-        )
-        .then (producto => {res.render(path.resolve(__dirname, '../views/products/productDetail'), {
+        dbProduct.findByPk(req.params.id,{
+                include: ["category"]
+        })
+        .then (producto => {
+            res.render(path.resolve(__dirname, '../views/products/productDetail'), {
             producto: producto,
             styles: ["producto.css", "footer.css"],
-            title: producto.product_name
+            title: producto.productName
         })})
         .catch(error => res.send(error))
     },
@@ -36,15 +34,14 @@ const productosController = {
             title: "Catálogo de productos"
         })})
         .catch(error => res.send(error))
-    }
-
-    // detalleComentarios: function(req, res) {
-    //     if(req.params.idComentario == undefined) {
-    //         res.send("Bienvenidos a los comentarios del producto " + req.params.idProducto);
+    },
+    detalleComentarios: function(req, res) {
+        if(req.params.idComentario == undefined) {
+            res.send("Bienvenidos a los comentarios del producto " + req.params.idProducto);
              
-    //     }  else { res.send("Bienvenidos a los comentarios del producto " + req.params.idProducto + ' y estàs enfocado en el comentario ' + req.params.idComentario);
-    //     };    
-    // }
+        }  else { res.send("Bienvenidos a los comentarios del producto " + req.params.idProducto + ' y estàs enfocado en el comentario ' + req.params.idComentario);
+        };    
+    }
 
     
 }

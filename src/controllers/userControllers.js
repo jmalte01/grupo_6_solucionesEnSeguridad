@@ -3,6 +3,7 @@ const fs = require('fs');
 const multer = require('multer');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
+const dbProduct = db.Product;
 
 const { validationResult } = require('express-validator');
 
@@ -16,7 +17,6 @@ const userControllers = {
         access: (req, res) => {
             const errors = validationResult(req);             //return res.send(errors.mapped());
             if(errors.isEmpty()){
-                let usersDatabase = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../database/users.json')));
                 let userLogin = usersDatabase.find(usuario => usuario.email == req.body.email);           //return res.send(userLogin);
                 delete userLogin.password;
                 req.session.usuario = userLogin;

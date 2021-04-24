@@ -9,8 +9,8 @@
         -->
 
         <div class="detalles">
-            <p><%= producto.category_id %></p>
-            <h2><%= producto.product_name %></h2>
+            <p><%= producto.category.name %></p>
+            <h2><%= producto.productName %></h2>
             <% if (producto.detail) { %>
                 <p>
                     <%= producto.detail %>

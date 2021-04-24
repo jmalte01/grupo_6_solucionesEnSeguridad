@@ -1,20 +1,20 @@
 const path = require('path');
 const fs = require('fs');
 const db = require('../database/models');
-const dbProduct = db.Product
+// const dbProduct = db.Product
 
-const mainController = {
+module.exports = {
     index: (req, res) => {
-        dbProduct.findAll()
+        db.Product.findAll()
         .then ((productos) => {
             res.render(path.resolve(__dirname, '../views/index'), {
-                productos: productos,
+                productos,
                 styles: ["index.css", "footer.css"],
                 title: "Soluciones en Seguridad - Inicio"
             })
         })
         .catch(error => res.send(error))
-    },
+    }
     // carrito: (req, res) => {
     //     res.render(path.resolve(__dirname, '../views/carrito'), {
     //             productos,
@@ -22,5 +22,5 @@ const mainController = {
     //             title: "Carrito de Compra"
     //         })
     //     }
-    }
-    module.exports = mainController;
+
+}

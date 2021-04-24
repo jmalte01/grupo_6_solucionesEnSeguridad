@@ -11,11 +11,15 @@ module.exports =  function(sequelize, dataTypes) {
             type:dataTypes.STRING,
             allowNull: false
         },
-        category_id: {
-            type: dataTypes.INTEGER.UNSIGNED
+        categoryId: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         },
-        subcategory_id: dataTypes.INTEGER,
-        product_name: {
+        subcategoryId: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+        productName: {
             type:dataTypes.STRING,
             allowNull: false
         },
@@ -37,7 +41,7 @@ module.exports =  function(sequelize, dataTypes) {
         },
         discount: {
             type:dataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         stock: {
             type:dataTypes.INTEGER,
@@ -59,8 +63,8 @@ module.exports =  function(sequelize, dataTypes) {
     Product.associate = function (models) {
         Product.belongsTo(models.Category,
             {
-                as: "categoria",
-                foreingKey: "category_id"
+                as: "category",
+                foreingKey: "categoryId"
             }
         );
     }
