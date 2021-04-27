@@ -1,21 +1,31 @@
-module.exports =  (sequelize, dataTypes) => {
+module.exports =  function(sequelize, dataTypes) {
     let alias = "Subcategory"
     let cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
-        subcategory: {type: dataTypes.INTEGER}
+        name: {type: dataTypes.STRING}
 
     }
     let config = {
         tableName: "subcategories",
         timestamps: false
     }
-    const Subcategory = sequelize.define(alias, cols, config);
 
-    
+    let Subcategory = sequelize.define(alias, cols, config);
+
+    Subcategory.associate = function (models) {
+
+        Subcategory.hasMany(models.Product,
+            {
+                as: "products",
+                foreingKey: "subcategoryId"
+            }
+            );
+
+    }
 
     return Subcategory;
 }

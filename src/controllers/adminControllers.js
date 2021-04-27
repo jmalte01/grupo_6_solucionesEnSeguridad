@@ -1,7 +1,10 @@
 const path = require('path');
 const fs = require('fs');
 const db = require('../database/models');
-const dbProduct = db.Product
+const dbProduct = db.Product;
+const Categories = db.Category;
+const Subcategories = db.Subcategory;
+
 
 const adminControllers = {
 
@@ -15,24 +18,34 @@ const adminControllers = {
         .catch(error => res.send(error))
     },
     crear: (req, res) => {
+        const allCategories = Categories.findAll();
+        const allSubcategories = Subcategories.findAll();
+
+        Promise.all([allCategories, allSubcategories ])
+        .then( ([allCategories, allSubcategories ]) => 
+        
         res.render(path.resolve(__dirname, '../views/admin/newProduct'), {
+            allCategories,
+            allSubcategories,
             styles: ["index.css", "footer.css", "newProduct.css"],
             title: "Crear nuevo producto"
-        })
+        }))
+        .catch(error => res.send(error)) 
     },
     save: (req, res) => {
+        console.log(req.body);
         dbProduct.create ({
             sku: req.body.sku,
-            category: req.body.categoria,
-            subcategory: req.body.subcategoria,
-            product_name: req.body.articulo,
+            categoryId: req.body.categoria,
+            subcategoryId: req.body.subcategoria,
+            productName: req.body.articulo,
             description: req.body.descripcion,
-            detail: (req.body.detail).split(","),
+            detail: req.body.detalles,
             image: req.file.filename,
             price: req.body.precio,
             discount: req.body.descuento,
             stock: req.body.stock,
-            status: req.body.estados
+            status: req.body.status
         })
         .then(()=>{
             return res.redirect('/admin/administrar');
@@ -40,9 +53,14 @@ const adminControllers = {
         .catch(error => res.send(error))
     },
     editar: (req, res) => {
+        // const allCategories = Categories.findAll();
+        // const allSubcategories = Subcategories.findAll();
+
         dbProduct.findByPk (req.params.id)
-        .then((productos)=>{res.render(path.resolve(__dirname, `../views/admin/editProduct`), {
-            productos: productos,
+        .then((producto)=>{res.render(path.resolve(__dirname, `../views/admin/editProduct`), {
+            // categories: allCategories,
+            // subcategories: allSubcategories,
+            producto: producto,
             styles: ["index.css", "footer.css", "editProduct.css"],
             title: "Editar producto"
         })})
@@ -51,16 +69,16 @@ const adminControllers = {
     update: (req, res) => {
         dbProduct.update({
             sku: req.body.sku,
-            category: req.body.categoria,
-            subcategory: req.body.subcategoria,
+            category: req.body.categoria.value,
+            subcategory: req.body.subcategoria.value,
             product_name: req.body.articulo,
             description: req.body.descripcion,
-            detail: (req.body.detail).split(","),
+            detail: req.body.detail,
             image: req.file.filename,
             price: req.body.precio,
             discount: req.body.descuento,
             stock: req.body.stock,
-            status: req.body.estados
+            status: req.body.status
         },{
             where:{
                 id: req.params.id

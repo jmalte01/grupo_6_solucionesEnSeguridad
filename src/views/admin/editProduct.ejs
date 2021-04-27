@@ -18,27 +18,27 @@
         <h2>Agregar un nuevo producto</h2>
         <form action="/admin/editar/<%= producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id="formulario">
             <div>
-                <img src="/img/<%= producto.image %>" alt="Imagen de <%= producto.name %>">
+                <img src="/img/<%= producto.image %>" alt="Imagen de <%= producto.productName %>">
                 <input type="file" name="imagen">
             </div>
             <div>
                 <label for="articulo">Artículo</label>
-                <input type="text" name="articulo" value="<%= producto.name %>">
+                <input type="text" name="articulo" value="<%= producto.productName %>">
                 <label for="descripcion">Descripcion</label>
                 <input type="text" name="descripcion" value="<%= producto.description %>"/>
                 <label for="detail">Detalle de producto</label>
                 <textarea name="detail"><%= producto.detail %></textarea>
                 <label for="categoria">Categoria</label>
-                <select name="categoria">
-                    <option disabled selected><%= producto.category %></option>
-                    <option value="Video Vigilancia">Video Vigilancia</option>
+                <select name="categoria" id="">
+                    <option value="categoria">Seleccione</option>
+               
                 </select>
                 <label for="subcategoria">Subcategoria</label>
                 <select name="subcategoria" id="">
-                    <option value="Video Vigilancia">Video Vigilancia</option>
+                    <option value="subcategoria">Seleccione</option>
+                    
+             
                 </select>
-                <!-- <label for="Color">Color</label>
-                <input type="text" value="color"> -->
                 <label for="precio">Precio</label>
                 <input type="text" name="precio" value="<%= producto.price %>">
                 <label for="descuento">Descuento</label>

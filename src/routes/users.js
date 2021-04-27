@@ -7,11 +7,11 @@ const bcrypt = require('bcryptjs');
 const { body } = require('express-validator');
 const isRemember = require('../middlewares/isRemember');
 const db = require('../database/models');
-let usersDatabase = db.User;
+let Users = db.User;
 
 const userControllers = require(path.resolve(__dirname,'../controllers/userControllers'));
 
-// let usersDatabase =  JSON.parse(path.resolve(__dirname, '../database/users.js'))
+// let Users =  JSON.parse(path.resolve(__dirname, '../database/users.js'))
 
 
 const storage = multer.diskStorage({
@@ -24,29 +24,31 @@ const storage = multer.diskStorage({
 });
 const upload= multer({ storage });
 
-
 const validacionesLogin = [
-    body('email').custom( ( value ) =>{
-        for (let i = 0; i < usersDatabase.length; i++) {
-            if (usersDatabase[i].email == value) {
-                return true    
-            }
+
+    // if (user) {
+    //     if(bcrypt.compareSync(req.body.password, user.dataValues.password)) {
+    //         return Promise.resolve(true);
+    //     }
+    //     else {
+    //         return Promise.reject('Usuario o contraseña no coinciden');
+    //     }
+    // }
+
+      body('email').custom((value, { req }) => {
+        return Users.findOne({where: {
+            email: value
+        }}).then(user => {
+          if (!user) {
+            return Promise.reject('Usuario o contraseña no coinciden');
+          } else if(bcrypt.compareSync(req.body.password, user.dataValues.password)){
+            return Promise.resolve(true);
+        }else{
+            return Promise.reject('Usuario o contraseña no coinciden');
         }
-        return false
-    }).withMessage('Usuario no se encuentra registrado...'), //simple12
-    body('password').custom( (value, {req}) =>{
-        for (let i = 0; i < usersDatabase.length; i++) {
-            if (usersDatabase[i].email == req.body.email) {
-                if(bcrypt.compareSync(value, usersDatabase[i].password)){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-        }
-        
-    }).withMessage('Usuario o contraseña no coinciden'),
-]
+        })
+      })
+    ]
 
 
 const validacionesRegistro = [

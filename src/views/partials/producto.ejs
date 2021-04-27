@@ -19,7 +19,8 @@
                 <p class="descripcion"> <%= producto.description %></p>
             <% } %>
             <br />
-            <p class="precio"><b>$ <%= producto.price %>.-</b></p>
+            <p class="precio"><b><s>$ <%= producto.price %>.-</s></b></p>
+            <p class="precio"><b>$ <%= (producto.price - (producto.price * producto.discount) / 100) %>.-</b></p>
             <br />
             <button class="agregar">Agregar al carrito</button>
         </div>

@@ -69,5 +69,14 @@ module.exports =  function(sequelize, dataTypes) {
         );
     }
 
+    // Product.associate = function (models) {
+    //     Product.belongsTo(models.Subcategory,
+    //         {
+    //             as: "subcategory",
+    //             foreingKey: "subcategoryId"
+    //         }
+    //     );
+    // }
+
     return Product;
 }

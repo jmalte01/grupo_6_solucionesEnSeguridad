@@ -1,8 +1,8 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "ses_pj_database",
+    "password": "root",
+    "database": "ses_schema",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
