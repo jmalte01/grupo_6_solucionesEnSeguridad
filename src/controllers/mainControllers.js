@@ -1,11 +1,11 @@
 const path = require('path');
 const fs = require('fs');
 const db = require('../database/models');
-// const dbProduct = db.Product
+const dbProduct = db.Product
 
 module.exports = {
     index: (req, res) => {
-        db.Product.findAll()
+        dbProduct.findAll()
         .then ((productos) => {
             res.render(path.resolve(__dirname, '../views/index'), {
                 productos,

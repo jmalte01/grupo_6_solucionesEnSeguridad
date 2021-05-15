@@ -8,10 +8,12 @@ const cookieParser = require('cookie-parser');
 
 const mainRoutes = require('./src/routes/main');
 const productRoutes = require('./src/routes/products');
-const users = require('./src/routes/users');
-const admin = require('./src/routes/admin');
+const userRoutes = require('./src/routes/users');
+const adminRoutes = require('./src/routes/admin');
+const CartRoutes = require ('./src/routes/shoppingCart')
 const acceso = require('./src/middlewares/acceso');
 const mantenimiento = require('./src/middlewares/mantenimiento');
+const { shoppingCart } = require('./src/controllers/shoppingCartController');
 
 const publicPath = path.resolve(__dirname, './public');
 
@@ -51,9 +53,10 @@ app.use(acceso);
 
 
 app.use(mainRoutes);
-app.use(users);
+app.use(userRoutes);
 app.use(productRoutes);
-app.use(admin);
+app.use(adminRoutes);
+app.use(CartRoutes);
 
 /**********************************************    
 Faltan implementar: carrito, mensaje de registro, catálogo, 

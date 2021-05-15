@@ -1,11 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const db = require('../database/models');
-const dbProduct = db.Product;
-const dbCategory = db.Category;
-const dbSubCategory = db.Subcategory;
-
-
+const products = db.Product;
 
 const productosController = {
     
@@ -15,21 +11,21 @@ const productosController = {
     ***********************************************/
 
     detalle: (req, res) => { 
-        dbProduct.findByPk(req.params.id,{
+        products.findByPk(req.params.id,{
                 include: ["category"]
         })
         .then (producto => {
             res.render(path.resolve(__dirname, '../views/products/productDetail'), {
-            producto: producto,
+            producto,
             styles: ["producto.css", "footer.css"],
             title: producto.productName
         })})
         .catch(error => res.send(error))
     },
     catalogo: (req, res) => { 
-        dbProduct.findAll()
+        products.findAll()
         .then ((productos)=>{res.render(path.resolve(__dirname, '../views/products/catalog'), {
-            productos: productos,
+            productos,
             styles: ["index.css", "footer.css"],
             title: "Catálogo de productos"
         })})

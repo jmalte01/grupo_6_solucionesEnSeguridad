@@ -11,7 +11,7 @@ const adminControllers = {
     index: (req, res) => {
         dbProduct.findAll()
         .then ((productos)=>{res.render(path.resolve(__dirname, '../views/admin/handleProduct'), {
-            productos: productos,
+            productos,
             styles: ["index.css", "footer.css", "handleProduct.css"],
             title: "Panel de Administración"
         })})

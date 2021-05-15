@@ -1,5 +1,5 @@
-<body id="producto">
-    <div class="flex-item">                
+<body id="product">
+    <div class="product-image">                
         <figure> <img src="/img/<%= producto.image %>" /></figure>
     </div>
     <div class="flex-item">
@@ -22,7 +22,11 @@
             <p class="precio"><b><s>$ <%= producto.price %>.-</s></b></p>
             <p class="precio"><b>$ <%= (producto.price - (producto.price * producto.discount) / 100) %>.-</b></p>
             <br />
-            <button class="agregar">Agregar al carrito</button>
+            <form action="/carrito/añadirCarrito" method="POST">
+                <input type="hidden"  name="productoId" value="<%= producto.id%>">
+                <input  type="number" name="cantidad" value="1">
+                <button type="submit" class="agregar">Agregar al carrito</button>
+            </form>
         </div>
     </div>    
 </body>

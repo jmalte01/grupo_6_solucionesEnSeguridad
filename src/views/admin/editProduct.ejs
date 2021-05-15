@@ -30,29 +30,27 @@
                 <textarea name="detail"><%= producto.detail %></textarea>
                 <label for="categoria">Categoria</label>
                 <select name="categoria" id="">
-                    <option value="categoria">Seleccione</option>
-               
+                    <option value="<%= producto.categoryId.id %>"><%= producto.categoryId.name %></option>
                 </select>
                 <label for="subcategoria">Subcategoria</label>
                 <select name="subcategoria" id="">
-                    <option value="subcategoria">Seleccione</option>
-                    
-             
+                    <option value="<%= producto.subcategoryId.id %>"><%= producto.subcategoryId.name  %></option>
                 </select>
                 <label for="precio">Precio</label>
                 <input type="text" name="precio" value="<%= producto.price %>">
                 <label for="descuento">Descuento</label>
-                <input type="text" name="descuento">
+                <input type="text" name="descuento " value="<%= producto.discount %>">
                 <label for="stock">Stock</label>
-                <input type="text" name="stock">
+                <input type="text" name="stock" value="<%= producto.stock %>">
                 <label for="status">Estado</label>
-                <input type="text" name="status">
+                <input type="text" name="status" value="<%= producto.stock %>">
                 <label for="sku">Codigo de barra</label>
-                <input type="text" name="sku">
+                <input type="text" name="sku" value="<%= producto.sku %>">
                 <button type="submit">Guardar cambios</button>
             </div>
         </form>
     </main>
     <%- include('../partials/footer') %>
+    <script src="js/createEditProduct.js"></script>
 </body>
 </html>

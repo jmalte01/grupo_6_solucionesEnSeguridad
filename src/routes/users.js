@@ -53,13 +53,13 @@ const validacionesLogin = [
 
 const validacionesRegistro = [
     body('first_name').isLength({
-        min: 1
+        min: 2
     }).withMessage('El campo nombre no puede estar vacío'),
-    body('last_name').isLength({min: 1
+    body('last_name').isLength({min: 2
         }).withMessage('El campo apellido no puede estar vacío'),
     body('email').isEmail().withMessage('Agregar un email válido'),
-    body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
-    body('repeatPassword').isLength({min: 6 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres'),
+    body('password').isLength({min: 8 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
+    body('repeatPassword').isLength({min: 8 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres'),
     body('repeatPassword').custom((value, {req}) =>{
         if(req.body.password == value ){
             return true    
