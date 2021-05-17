@@ -12,13 +12,13 @@
             <main class="login">
                 <h3>Ingresa tus datos:</h3>
                 <form action="/login" method="POST" id="formulario">
-                    <input type="email" class="email" name="email" placeholder="tucorreo@email.com" value="<%= typeof old != 'undefined' ? old.email : '' %>">
+                    <input type="email" class="email" id="email" name="email" placeholder="tucorreo@email.com" value="<%= typeof old != 'undefined' ? old.email : '' %>">
                     <% if(typeof(errors) != 'undefined' && errors.email){%>
                         <span class="text-danger">
                           <%= errors.email.msg %>
                         </span>
                      <%}%>
-                    <input type="password" name="password" placeholder="Contraseña" aria-label="Username">
+                    <input type="password" id="password" name="password" placeholder="Contraseña" aria-label="Username">
                     <% if(typeof(errors) != 'undefined' && errors.password){%>
                         <span class="text-danger">
                           <%= errors.password.msg %>
@@ -35,6 +35,7 @@
     </section>
     <%- include('../partials/footer') %>
     <script src="js/login.js"></script>
+    <script src="js/validaciones.js"></script>
 </body>
 </html>
 
