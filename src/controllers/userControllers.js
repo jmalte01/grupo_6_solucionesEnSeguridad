@@ -26,10 +26,11 @@ const userControllers = {
                 }
                 return res.redirect('/');
             }else{
-              res.render(path.resolve(__dirname, '../views/users/login'),{
-                errors:errors.mapped(), old:req.body,
-                styles: ["login.css", "footer.css", "index.css"],
-                title: "Iniciar Sesión"});        
+                res.render(path.resolve(__dirname, '../views/users/login'),{
+                    errors: errors.array(),
+                    styles: ["login.css", "footer.css", "index.css"],
+                    title: "Iniciar Sesión"
+                });        
             }
         },
         logout: (req,res) =>{
@@ -45,9 +46,7 @@ const userControllers = {
         },
         create:  (req, res) => {
             let errors = validationResult(req);
-            
             if (errors.isEmpty()) {
-
                 Users.create({
                     firstName: req.body.first_name,
                     lastName: req.body.last_name,
@@ -60,7 +59,6 @@ const userControllers = {
                     return res.redirect('/registerMessage');
                 })
                 .catch(error => res.send(error));
-
 
             //     let user = {
             //         first_name: req.body.first_name,
@@ -83,12 +81,13 @@ const userControllers = {
             //     usersJSON = JSON.stringify(users, null, 2);
             //     fs.writeFileSync(path.resolve(__dirname, '../database/users.json'), usersJSON);
             //     res.redirect('/registerMessage');
-            // } else {
-            //     return res.render(path.resolve(__dirname, '../views/users/register'), {
-            //         errors: errors.errors,  old: req.body,
-            //         styles: ["register.css", "footer.css", "index.css"],
-            //         title: "Registrarme"
-            //     });
+
+            } else {
+                return res.render(path.resolve(__dirname, '../views/users/register'), {
+                    errors: errors.array(),
+                    styles: ["register.css", "footer.css", "index.css"],
+                    title: "Registrarme"
+                });
             }
         },
         forgot: (req, res) => {

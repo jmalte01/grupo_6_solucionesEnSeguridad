@@ -35,7 +35,7 @@ const validacionesLogin = [
     //     }
     // }
 
-      body('email').custom((value, { req }) => {
+        body('email').custom((value, { req }) => {
         return Users.findOne({where: {
             email: value
         }}).then(user => {
@@ -53,9 +53,9 @@ const validacionesLogin = [
 
 const validacionesRegistro = [
     body('first_name').isLength({
-        min: 2
+        min: 1
     }).withMessage('El campo nombre no puede estar vacío'),
-    body('last_name').isLength({min: 2
+    body('last_name').isLength({min: 1
         }).withMessage('El campo apellido no puede estar vacío'),
     body('email').isEmail().withMessage('Agregar un email válido'),
     body('password').isLength({min: 8 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),

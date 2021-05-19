@@ -4,8 +4,15 @@
 <body>
     <%- include('../partials/header') %>
     <main>
+        <% if(typeof(errors) != 'undefined'){%>
+            <ul class="alert alert-danger">
+               <% errors.forEach(error => { %>
+                  <li><%= error.msg%></li>
+               <%});%>
+             </ul>
+         <%}%>    
         <h2>Agregar un nuevo producto</h2>
-        <form action="/admin/crear" method="POST" enctype="multipart/form-data" id="formulario">
+        <form action="/admin/crear" method="POST" onsubmit=" return validaciones()" enctype="multipart/form-data" id="formulario">
             <label for="articulo">Articulo</label>
             <input type="text" name="articulo">
             <label for="descripcion">Describir</label>
