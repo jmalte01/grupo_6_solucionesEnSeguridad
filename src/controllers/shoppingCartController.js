@@ -1,6 +1,5 @@
 const path = require('path')
-const {validator} = require('express-validator')
-
+const {validationResult} = require('express-validator')
 const db = require('../database/models')
 const products = db.Product
 const shoppingCarts = db.ShoppingCart

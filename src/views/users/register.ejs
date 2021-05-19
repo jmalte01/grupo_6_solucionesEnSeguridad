@@ -18,23 +18,27 @@
                    <%});%>
                  </ul>
              <%}%>    
-            <form action="/register" method="POST" enctype="multipart/form-data">
-                <p><span><input type="text" name="first_name" placeholder="Nombre" required></span><span><input type="text" name="last_name" placeholder="Apellido" required></span></p>
-                <input type="email" name="email" placeholder="tucorreo@email.com" required>
-                <input type="password" name="password" placeholder="Contraseña" required>
-                <input type="password" name="repeatPassword" placeholder="Repetir Contraseña" required>
+            <form name="RegForm" action="/register" onsubmit=" return validaciones()" method="POST" enctype="multipart/form-data">
+                <p><span><input type="text" name="first_name" id="first_name" placeholder="Nombre" ></span><span>
+                <input type="text" name="last_name" id="last_name" placeholder="Apellido" ></span></p>
+                <input type="email" name="email" id="email" placeholder="tucorreo@email.com" >
+                <input type="password" name="password" id="password" placeholder="Contraseña" >
+                <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repetir Contraseña">
                 <div class="image-uploa">
                     <label for="file-input">
                         Foto de perfil
                     </label>
                 <input type="file" name="avatar">
                 </div>
-                <input type="submit" value="Enviar" class="btn">
+                <input type="submit" value="Enviar" class="btn" >
                 <a class="form_anchors" href="/login">Ya tengo cuenta</a>
             </form>
         </main>
     </section>
     <%- include('../partials/footer') %>
+    <!-- <script src="js/validaciones.js"> -->
+        
+    </script>
     <script src="js/register.js"></script>
 </body>
 </html>
