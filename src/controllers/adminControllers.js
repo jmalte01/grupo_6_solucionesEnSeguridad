@@ -55,13 +55,19 @@ const adminControllers = {
             })
             .catch(error => res.send(error))
         }else{     
+            const allCategories = Categories.findAll();
+            const allSubcategories = Subcategories.findAll();
+            Promise.all([allCategories, allSubcategories ])
+            .then( ([allCategories, allSubcategories ]) => 
+            
             res.render(path.resolve(__dirname, '../views/admin/newProduct'), {
                 allCategories,
                 allSubcategories,
                 styles: ["index.css", "footer.css", "newProduct.css"],
                 title: "Crear nuevo producto",
                 errors: errors.array()
-            })
+            }))
+            .catch(error => res.send(error)) 
         }
         
     },

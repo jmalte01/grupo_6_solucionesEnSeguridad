@@ -35,14 +35,14 @@
                 <input type="text" name="descripcion" value="<%= producto.description %>"/>
                 <label for="detail">Detalle de producto</label>
                 <textarea name="detail"><%= producto.detail %></textarea>
-                <!-- <label for="categoria">Categoria</label>
+                <label for="categoria">Categoria</label>
                 <select name="categoria" id="">
                     <option value="<%= producto.categoryId.id %>"><%= producto.categoryId.name %></option>
                 </select>
                 <label for="subcategoria">Subcategoria</label>
                 <select name="subcategoria" id="">
                     <option value="<%= producto.subcategoryId.id %>"><%= producto.subcategoryId.name  %></option>
-                </select> -->
+                </select>
             </div>
             <div>
                 <label for="stock">Stock</label>
@@ -52,7 +52,7 @@
                 <label for="sku">Codigo de barra</label>
                 <input type="text" name="sku" value="<%= producto.sku %>">
                 <label for="descuento">Descuento</label>
-                <input type="text" name="descuento " value="<%= producto.discount %>">
+                <input type="text" name="descuento" value="<%= producto.discount %>">
                 <label for="precio">Precio</label>
                 <input type="text" name="precio" value="<%= producto.price %>">
                                 <button type="submit">Guardar cambios</button>

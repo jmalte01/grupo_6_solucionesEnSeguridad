@@ -14,26 +14,20 @@
                 <th>Unidad</th>
                 <th>Total</th>
             </tr>
-            <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-            </tr>
-            <tr class="articulo">
-                <td class="bin"><i class="fas fa-trash-alt"></i></td>
-                <td id=txtalileft>Lector de huellas dactilares</td>
-                <td class="imagenes"><img src=/img/r8.jpg alt=""></td>
-                <td><div class="cajaselect">
-                    <span class="selec selectmenos icon icon-minus"><i class="fas fa-plus-square"></i></span>
-                    <input type="text" id="quantity" name="quantity" value="2" min="1" class="quantity-selector quantity-input" readonly="">
-                    <span class="selec selecmas icon icon-plus"><i class="fas fa-plus-square"></i></span>
-              </div></td>
-                <td>$7100</td>
-                <td>$7100</td>
-            </tr>
+            <% shoppingCartItems.forEach( items => { %>
+                <tr class="articulo">
+                    <td class="bin"><i class="fas fa-trash-alt"></i></td>
+                    <td id=txtalileft><%= item.productId.productName %></td>
+                    <td class="imagenes"><img src="/img/<%= item.productId.image %>" alt=""></td>
+                    <td><div class="cajaselect">
+                        <span class="selec selectmenos icon icon-minus"><i class="fas fa-plus-square"></i></span>
+                        <input type="text" id="quantity" name="quantity" value="2" min="1" class="quantity-selector quantity-input" readonly="">
+                        <span class="selec selecmas icon icon-plus"><i class="fas fa-plus-square"></i></span>
+                    </div></td>
+                    <td>$7100</td>
+                    <td>$7100</td>
+                </tr>
+            <% }); %>
             <tr class="articulo">
                 <td class="bin"><i class="fas fa-trash-alt"></i></td>
                 <td id=txtalileft>Cámara infrarroja aérea</td>
