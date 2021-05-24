@@ -22,7 +22,7 @@
             <p class="precio"><b><s>$ <%= producto.price %>.-</s></b></p>
             <p class="precio"><b>$ <%= (producto.price - (producto.price * producto.discount) / 100) %>.-</b></p>
             <br />
-            <form action="/carrito/añadirCarrito" method="POST">
+            <form action="/shoppingCart/addCart" method="POST">
                 <input type="hidden"  name="productoId" value="<%= producto.id%>">
                 <input  type="number" name="cantidad" value="1">
                 <button type="submit" class="agregar">Agregar al carrito</button>

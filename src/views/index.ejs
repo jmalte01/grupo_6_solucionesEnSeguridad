@@ -4,24 +4,41 @@
    <%- include('./partials/head'); %>
 <body>
     <%- include('./partials/header'); %>
+    <%- include('./partials/categoriaNavbar'); %>
     <section>
       <div class="hero">
         <img src="img/slider_01.png" />
       </div>
     </section>
-    <section class="buscar">
-      <form action="/search" method="POST" class="busqueda">
-        <input type="text" placeholder="Buscar productos" name="Buscar">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-    </section>
+    <%- include('./partials/searchBar'); %>
     <br/>
     <section>
       <h2 class="ofertas">Ofertas</h2>
     </section>
     <section class="productos">
         <div class="flex-container">
-            <% productos.forEach( producto => { %>
+            <% discounted.forEach( producto => { %>
+                <div class="flex-item">
+                    <a href="productDetail/<%= producto.id %>"><img src="/img/<%= producto.image %>" /></a>
+                    <div class="detalles">
+                        <div class="descripcion-container">
+                            <a href="productDetail/<%= producto.id %>"><h3 class="nombre"><%= producto.productName %></h3></a>
+                            <p class="descripcion"><%= producto.description %></p>
+                        </div> 
+                        <div class="precio-container">
+                            <a href="productDetail/<%= producto.id %>"><button class="verMas">Ver Mas</button></a>
+                            <p class="precio">$ <%= producto.price %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+    <br/>
+    <section class="productos">
+        <div class="flex-container">
+            <br/>
+            <% recentlyAdded.forEach( producto => { %>
                 <div class="flex-item">
                     <a href="productDetail/<%= producto.id %>"><img src="/img/<%= producto.image %>" /></a>
                     <div class="detalles">

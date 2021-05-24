@@ -50,12 +50,16 @@ module.exports =  function(sequelize, dataTypes) {
         status: {
             type:dataTypes.INTEGER,
             allowNull: false
+        },
+        createdAt:{
+            type:dataTypes.DATE,
+            allowNull: true
         }
         
     }
     let config = {
         tableName: "products",
-        timestamps: false
+        timestamps: true
     }
 
     let Product = sequelize.define(alias, cols, config);

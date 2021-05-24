@@ -19,7 +19,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.DECIMAL,
             allowNull: false
         },
-        state: {
+        status: {
             type: dataTypes.INTEGER,
             allowNull: false
         },

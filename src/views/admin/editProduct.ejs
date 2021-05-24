@@ -37,11 +37,15 @@
                 <textarea name="detail"><%= producto.detail %></textarea>
                 <label for="categoria">Categoria</label>
                 <select name="categoria" id="">
-                    <option value="<%= producto.categoryId.id %>"><%= producto.categoryId.name %></option>
+                    <% categorias.forEach( categoria => { %>
+                        <option value="<%= categoria.id %>"<%=categoria.id==producto.categoryId?'selected':null%>><%= categoria.name %></option>
+                    <% }); %>
                 </select>
                 <label for="subcategoria">Subcategoria</label>
                 <select name="subcategoria" id="">
-                    <option value="<%= producto.subcategoryId.id %>"><%= producto.subcategoryId.name  %></option>
+                    <% subcategorias.forEach( subcategoria => { %>
+                        <option value="<%= subcategoria.id %>"><%= subcategoria.name %></option>
+                    <% }); %>
                 </select>
             </div>
             <div>

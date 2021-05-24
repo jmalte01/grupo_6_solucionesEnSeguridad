@@ -32,24 +32,26 @@ const validacionesEdit = [
 ];
 
 const validacionesImagenEdit = [
-    body('imagen').custom((value, {req}) =>{
-        console.log(req.body)
-        console.log(req.file)
-        if(req.file == undefined){
-            return true
-        }else{
-            console.log(req.file.mimetype)
+body('imagen').custom((value, {req}) =>{
+
+        if (req.file == undefined) return false;
+
+            return true;
+  }).withMessage('Debe cargar una imagen válida')
+  .bail()
+  .custom((value, {req}) =>{
+
             let filetype = req.file.mimetype
             switch (filetype) {
-                case 'application/jpg':
-                    return false;
-                case 'application/jpeg':
-                    return false;
-                case  'application/png':
-                    return false;
-                default:
+                case 'image/jpg':
                     return true;
-            }
+                case 'image/jpeg':
+                    return true;
+                case  'image/png':
+                    return true;
+                default:
+                    return false;
+
         }
   }).withMessage('Debe elegir una imagen en formato: .JPG ó JPEG ó PNG')
 ];
@@ -70,15 +72,15 @@ const validacionesCreate = [
 ];
 
 const validacionesImagenCreate = [
-    body('imagen').custom((value, {req}) =>{
+    body('imagen').custom((value, {req,}) =>{
         if(req.file == undefined){
             let filetype = req.file.mimetype
             switch (filetype) {
-                case 'application/jpg':
+                case 'image/jpg':
                     return false;
-                case 'application/jpeg':
+                case 'image/jpeg':
                     return false;
-                case  'application/png':
+                case  'image/png':
                     return false;
                 default:
                     return true;
@@ -90,9 +92,7 @@ const validacionesImagenCreate = [
 router.get('/admin/administrar', userLogged, adminControllers.index);
 router.get('/admin/crear', userLogged, adminControllers.crear);
 router.post('/admin/crear', validacionesCreate, upload.single('imagen'), validacionesImagenCreate, adminControllers.save);
-router.get('/admin/editar/:id?', userLogged, adminControllers.editar);
+router.get('/admin/editar/:id', userLogged, adminControllers.editar);
 router.put('/admin/editar/:id', validacionesEdit, upload.single('imagen'), validacionesImagenEdit, adminControllers.update);
 router.delete('/admin/delete/:id', adminControllers.delete);
 module.exports = router;
-
-
