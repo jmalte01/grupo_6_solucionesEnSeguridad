@@ -252,3 +252,8 @@ img {
 .precio {
   margin-right: 0.5em;
 }
+
+.map{
+  height: 400px;
+  width: 100%;
+}
