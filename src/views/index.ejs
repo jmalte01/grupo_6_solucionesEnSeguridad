@@ -4,24 +4,16 @@
    <%- include('./partials/head'); %>
 <body>
     <%- include('./partials/header'); %>
-    <section>
-      <div class="hero">
-        <img src="img/slider_01.png" />
-      </div>
-    </section>
-    <section class="buscar">
-      <form action="/search" method="POST" class="busqueda">
-        <input type="text" placeholder="Buscar productos" name="Buscar">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-    </section>
+    <%- include('./partials/categoriaNavbar'); %>
+    <%- include('./partials/slider'); %>
+    <%- include('./partials/searchBar'); %>
     <br/>
     <section>
       <h2 class="ofertas">Ofertas</h2>
     </section>
     <section class="productos">
         <div class="flex-container">
-            <% productos.forEach( producto => { %>
+            <% discounted.forEach( producto => { %>
                 <div class="flex-item">
                     <a href="productDetail/<%= producto.id %>"><img src="/img/<%= producto.image %>" /></a>
                     <div class="detalles">
@@ -36,6 +28,36 @@
                     </div>
                 </div>
             <% }); %>
+        </div>
+    </section>
+    <br/>
+    <section>
+        <h2 class="ofertas">Añadidos Recientemente</h2>
+    </section>
+    <section class="productos">
+        <div class="flex-container">
+            <br/>
+            <% recentlyAdded.forEach( producto => { %>
+                <div class="flex-item">
+                    <a href="productDetail/<%= producto.id %>"><img src="/img/<%= producto.image %>" /></a>
+                    <div class="detalles">
+                        <div class="descripcion-container">
+                            <a href="productDetail/<%= producto.id %>"><h3 class="nombre"><%= producto.productName %></h3></a>
+                            <p class="descripcion"><%= producto.description %></p>
+                        </div> 
+                        <div class="precio-container">
+                            <a href="productDetail/<%= producto.id %>"><button class="verMas">Ver Mas</button></a>
+                            <p class="precio">$ <%= producto.price %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+    <section>
+        <h2 class="text-center">Aquí nos encontramos</h2>
+        <div class="map">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016887889514!2d-58.38375908501882!3d-34.60373446500553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses!2sar!4v1619403275846!5m2!1ses!2sar" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
     <%- include('./partials/footer'); %>

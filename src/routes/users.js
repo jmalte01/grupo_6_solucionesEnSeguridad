@@ -58,8 +58,8 @@ const validacionesRegistro = [
     body('last_name').isLength({min: 1
         }).withMessage('El campo apellido no puede estar vacío'),
     body('email').isEmail().withMessage('Agregar un email válido'),
-    body('password').isLength({min: 8 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
-    body('repeatPassword').isLength({min: 8 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres'),
+    body('password').isLength({min: 8 }).withMessage('La contraseña debe tener un mínimo de 8 caractéres'),
+    body('repeatPassword').isLength({min: 8 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 8 caractéres'),
     body('repeatPassword').custom((value, {req}) =>{
         if(req.body.password == value ){
             return true    
@@ -68,6 +68,7 @@ const validacionesRegistro = [
         }    
     }).withMessage('Las contraseñas deben ser iguales'),
     body('avatar').custom((value, {req}) =>{
+        console.log(req.file)
         if(req.file != undefined){
             return true
         }

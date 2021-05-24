@@ -18,13 +18,19 @@ const userControllers = {
         access: (req, res) => {
             const errors = validationResult(req);             //return res.send(errors.mapped());
             if(errors.isEmpty()){
-                let userLogin = Users.findOne(usuario => usuario.email == req.body.email);           //return res.send(userLogin);
-                delete userLogin.password;
-                req.session.usuario = userLogin;
-                if(req.body.recordarme){
-                    res.cookie('email', userLogin.email,{maxAge: 1000 * 60 * 60 * 24})
-                }
-                return res.redirect('/');
+                Users.findOne({
+                    email:req.body.email
+                })                                              //return res.send(userLogin);
+                .then((user) => {
+                    delete user.password;
+                    req.session.usuario = user;
+                    if(req.body.recordarme){
+                        res.cookie('email', user.email,{maxAge: 1000 * 60 * 60 * 24})
+                    }
+                    return res.redirect('/');
+                })
+                .catch(error => console.log(error))
+
             }else{
                 res.render(path.resolve(__dirname, '../views/users/login'),{
                     errors: errors.array(),

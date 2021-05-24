@@ -55,20 +55,32 @@ const adminControllers = {
             })
             .catch(error => res.send(error))
         }else{     
+            const allCategories = Categories.findAll();
+            const allSubcategories = Subcategories.findAll();
+            Promise.all([allCategories, allSubcategories ])
+            .then( ([allCategories, allSubcategories ]) => 
+            
             res.render(path.resolve(__dirname, '../views/admin/newProduct'), {
                 allCategories,
                 allSubcategories,
                 styles: ["index.css", "footer.css", "newProduct.css"],
                 title: "Crear nuevo producto",
                 errors: errors.array()
-            })
+            }))
+            .catch(error => res.send(error)) 
         }
         
     },
     editar: (req, res) => {
-        dbProduct.findByPk (req.params.id)
-        .then((producto)=>{res.render(path.resolve(__dirname, `../views/admin/editProduct`), {
-            producto: producto,
+        let allCategories = Categories.findAll();
+        let allSubcategories = Subcategories.findAll();
+        let products = dbProduct.findByPk (req.params.id)
+        Promise.all([allCategories, allSubcategories, products])
+        .then(([allCategories, allSubcategories,products]) =>
+        {res.render(path.resolve(__dirname, `../views/admin/editProduct`), {
+            categorias: allCategories,
+            subcategorias: allSubcategories,
+            producto: products,
             styles: ["index.css", "footer.css", "editProduct.css"],
             title: "Editar producto"
         })})
@@ -81,7 +93,7 @@ const adminControllers = {
                 sku: req.body.sku,
                 category: req.body.categoria.value,
                 subcategory: req.body.subcategoria.value,
-                product_name: req.body.articulo,
+                productName: req.body.articulo,
                 description: req.body.descripcion,
                 detail: req.body.detail,
                 image: req.file.filename,
@@ -98,11 +110,17 @@ const adminControllers = {
                 return res.redirect('/admin/administrar');
             })
             .catch(error => res.send(error))
-        }else{     
-            dbProduct.findByPk (req.params.id)
-            .then((producto)=>{res.render(path.resolve(__dirname, `../views/admin/editProduct`), {
+        }else{
+            const allCategories = Categories.findAll();
+            const allSubcategories = Subcategories.findAll();
+            const products = dbProduct.findByPk (req.params.id)
+            Promise.all([allCategories, allSubcategories,products])
+            .then( ([allCategories, allSubcategories,products]) =>
+            {res.render(path.resolve(__dirname, `../views/admin/editProduct`), {
                 errors: errors.array(),
-                producto: producto,
+                categorias: allCategories,
+                subcategorias: allSubcategories,
+                producto: products,
                 styles: ["index.css", "footer.css", "editProduct.css"],
                 title: "Editar producto"
             })})

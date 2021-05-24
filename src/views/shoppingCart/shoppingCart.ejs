@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <h1>Carrito    <span><i class="fa fa-shopping-cart"></i></span></h1>
+        <% if(typeof(errors) != 'undefined'){%>
+            <ul class="alert alert-danger">
+               <% errors.forEach(error => { %>
+                    <li><%= error.msg%></li>
+               <%});%>
+            </ul>
+        <%}%>
+        <table id="tabla-productos">
+            <tr>
+                <th></th>
+                <th id=txtalileft>Articulo</th>
+                <th></th>
+                <th>Cantidad</th>
+                <th>Unidad</th>
+                <th>Total</th>
+            </tr>
+            <%  items.forEach( item => { %>
+                <tr class="articulo">
+                    <td class="bin"><i class="fas fa-trash-alt"></i></td>
+                    <td id=txtalileft><%= item.productId.productName %></td>
+                    <td class="imagenes"><img src="/img/<%= item.productId.image %>" alt=""></td>
+                    <td><div class="cajaselect">
+                        <span class="selec selectmenos icon icon-minus"><i class="fas fa-plus-square"></i></span>
+                        <input type="text" id="quantity" name="cantidad" value="2" min="1" class="quantity-selector quantity-input" readonly="">
+                        <span class="selec selecmas icon icon-plus"><i class="fas fa-plus-square"></i></span>
+                    </div></td>
+                    <td>$7100</td>
+                    <td>$7100</td>
+                </tr>
+            <% }); %>
+        </table>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

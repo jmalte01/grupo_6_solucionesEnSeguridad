@@ -6,7 +6,7 @@
     <%- include('../partials/searchBar'); %>
     <br/>
     <section>
-      <h2 class="ofertas">Nuestros Productos</h2>
+      <h2 class="ofertas">Ofertas</h2>
     </section>
     <section class="productos">
         <div class="flex-container">
@@ -19,15 +19,15 @@
                             <p class="descripcion"><%= producto.description %></p>
                         </div> 
                         <div class="precio-container">
-                            <button class="verMas">Ver detalles</button>
+                            <a href="productDetail/<%= producto.id %>"><button class="verMas">Ver Mas</button></a>
                             <p class="precio">$ <%= producto.price %></p>
-                      </div>
+                        </div>
                     </div>
                 </div>
             <% }); %>
         </div>
     </section>
-   
     <%- include('../partials/footer'); %>
 </body>
 </html>
+

@@ -10,7 +10,7 @@ const mainRoutes = require('./src/routes/main');
 const productRoutes = require('./src/routes/products');
 const userRoutes = require('./src/routes/users');
 const adminRoutes = require('./src/routes/admin');
-const CartRoutes = require ('./src/routes/shoppingCart')
+const cartRoutes = require ('./src/routes/shoppingCart')
 const acceso = require('./src/middlewares/acceso');
 const mantenimiento = require('./src/middlewares/mantenimiento');
 const { shoppingCart } = require('./src/controllers/shoppingCartController');
@@ -56,7 +56,7 @@ app.use(mainRoutes);
 app.use(userRoutes);
 app.use(productRoutes);
 app.use(adminRoutes);
-app.use(CartRoutes);
+app.use(cartRoutes);
 
 /**********************************************    
 Faltan implementar: carrito, mensaje de registro, catálogo, 
