@@ -21,6 +21,7 @@ function LastProduct({ idLastProduct }){
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
+                    <img src={lastProduct.imagen} alt={lastProduct.nombreProducto}/>
                     <h5 className="m-0 font-weight-bold text-gray-800" >Last Product in Data Base</h5>
                 </div>
                 <div className="card-body">

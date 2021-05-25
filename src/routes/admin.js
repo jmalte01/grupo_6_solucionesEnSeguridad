@@ -72,20 +72,28 @@ const validacionesCreate = [
 ];
 
 const validacionesImagenCreate = [
-    body('imagen').custom((value, {req,}) =>{
-        if(req.file == undefined){
+    body('imagen').custom((value, {req}) =>{
+
+        if (req.file == undefined) return false;
+
+            return true;
+  }).withMessage('Debe cargar una imagen válida')
+  .bail()
+  .custom((value, {req}) =>{
+
             let filetype = req.file.mimetype
             switch (filetype) {
                 case 'image/jpg':
-                    return false;
-                case 'image/jpeg':
-                    return false;
-                case  'image/png':
-                    return false;
-                default:
                     return true;
+                case 'image/jpeg':
+                    return true;
+                case  'image/png':
+                    return true;
+                default:
+                    return false;
+
         }
-    }}).withMessage('Debe elegir una imagen en formato: .JPG ó JPEG ó PNG')
+  }).withMessage('Debe elegir una imagen en formato: .JPG ó JPEG ó PNG')
 ]
 
 
