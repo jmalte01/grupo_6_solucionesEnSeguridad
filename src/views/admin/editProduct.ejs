@@ -6,7 +6,7 @@
     <title>Iniciar Sesión</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <!-- <link rel="stylesheet" href="/css/estilos_globales.css"> 
+     <link rel="stylesheet" href="/css/estilos_globales.css"> 
     <link rel="stylesheet" href="/css/editProduct.css">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/footer.css">
@@ -22,7 +22,7 @@
                <%});%>
             </ul>
         <%}%>
-        <h2>Agregar un nuevo producto</h2>
+        <h2 class="blue">Agregar un nuevo producto</h2>
         <form action="/admin/editar/<%= producto.id%>?_method=PUT" method="POST" onsubmit=" return validaciones()" enctype="multipart/form-data" id="formulario">
             <div>
                 <img src="/img/<%= producto.image %>" alt="Imagen de <%= producto.productName %>">

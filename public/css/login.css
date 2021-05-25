@@ -58,7 +58,7 @@
     margin-right: 0.3rem;
   }
   
-  .btn {
+  .boton {
     padding: 10px 35px;
     background-color: #274c77;
     color: #fff;
@@ -68,7 +68,7 @@
     font-weight: bold;
   }
   
-  .btn:hover {
+  .boton:hover {
     background-color: #fff;
     transition: ease 0.2s;
     color: #274c77;

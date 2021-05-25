@@ -1,3 +1,34 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@lrodriguez86 
+jmalte01
+/
+grupo_6_solucionesEnSeguridad
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+grupo_6_solucionesEnSeguridad/public/css/index.css
+@ramiro-e
+ramiro-e cambios homepage
+Latest commit 11cfd42 in 2 hours
+ History
+ 3 contributors
+@ramiro-e@lrodriguez86@jmalte01
+259 lines (229 sloc)  3.86 KB
+  
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +41,7 @@ body {
 }
 
 header {
-  height: 70px;
+  height: 80px;
   background-color: #274c77;
   padding: 10px 0;
 }
@@ -34,25 +65,56 @@ a {
   line-height: 50px;
   cursor: pointer;
 }
+
+@media (min-width: 768px) {
+  .main-nav {
+   /* height: 60px; */
+  }
+
+
+}
+
+@media (min-width: 768px) {
+  nav {
+    top: 0px;
+  }
+}
+
 nav {
-  position: absolute;
-  background-color: #3d4852;
-  top: 70px;
+  position: relative;
+  background: #274c77;
+  top: 0px;
   left: 0;
   width: 100%;
+  z-index: 9;
 }
+
 nav ul {
   list-style-type: none;
-  max-height: 0px;
-  overflow: hidden;
+  max-height: 300px;
+ /* overflow: hidden; */
   transition: all 0.5s;
 }
+
+.yale {
+  background: #274c77 !important;
+}
+
+.white {
+  color: #dae1e7 !important;
+}
+
+.blue {
+  color: #274c77 !important;
+  text-align: center;
+}
+
 nav ul li {
   padding: 0 15px;
 }
 nav ul li a {
   display: inline-block;
-  padding: 12px;
+  padding: 6px;
   /* Add your custom styles below to change appearance of links */
   color: #dae1e7;
   text-decoration: none;
@@ -60,8 +122,14 @@ nav ul li a {
 }
 nav ul li a:hover,
 nav ul li a:focus {
-  color: #eb6f4a;
+  color: #a3cef1 !important;
 }
+@media (max-width: 768px) {
+#navbarNavDropdown {
+  height: 400px;
+}
+}
+
 #checkbox {
   display: none;
 }
@@ -69,7 +137,18 @@ nav ul li a:focus {
   max-height: 200px;
   padding: 15px 0;
   transition: all 0.5s;
+  display: none;
 }
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+background-color: #274c77 !important;
+    text-decoration: underline;
+}
+
+.navbar-nav .dropdown-menu{
+  background: #274c77 !important;
+    text-decoration: underline;
+}
+
 
 @media (min-width: 768px) {
   .menu-icon {
@@ -81,9 +160,10 @@ nav ul li a:focus {
     background-color: transparent;
   }
   nav ul {
-    max-height: 70px;
+    max-height: 300px;
     padding: 15px 0;
     text-align: right;
+    background: #274c77 !important;
   }
   nav ul li {
     display: inline-flex;
@@ -114,6 +194,15 @@ img {
   justify-content: center;
   background-color: #274c77;
   padding: 0.5em 0;
+}
+
+@media (max-width: 768px) {
+.boton-buscar {
+  display: none;
+}}
+
+.catalogo-item {
+  margin-left: 10px;
 }
 
 .busqueda{
@@ -154,21 +243,18 @@ img {
 .flex-item-1 {
   background: indianred;
 }
-
 .flex-item-2 {
   background: blue;
 }
-
 .flex-item-3 {
   background: tomato;
 }
-
 .flex-item-4 {
   background: coral;
 }*/
 
 .flex-item {
-  flex: 100%;
+  flex: initial;
   /* height: 100%; */
   margin-bottom: 3rem;
   background-color: #ececef;
@@ -201,7 +287,7 @@ img {
 /* desktop */
 @media screen and (min-width: 960px) {
   .flex-item {
-    flex: calc(25% - 1em);
+    flex: initial;
   }
 }
 
@@ -257,3 +343,16 @@ img {
   height: 400px;
   width: 100%;
 }
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete

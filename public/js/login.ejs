@@ -3,7 +3,11 @@
 <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-  
+    <section>
+        <div class="hero">
+          <img src="img/slider_01.png" />
+      </div>
+    </section>
     <section>
             <main class="login">
                 <h3>Ingresa tus datos:</h3>
@@ -21,7 +25,7 @@
                         </span>
                      <%}%>
                     <p><input type="checkbox" name="recordarme" id="remember">Recuerdame</p>
-                    <input type="submit" value="Enviar" class="boton">
+                    <input type="submit" value="Enviar" class="btn">
                     <div class="flex">
                         <a class="form_anchors" href="/register">Registrarme</a>
                         <a class="form_anchors" href="/forgotPassword">Olvidé mi contraseña</a>
@@ -32,7 +36,6 @@
     <%- include('../partials/footer') %>
     <script src="js/login.js"></script>
     <script src="js/validaciones.js"></script>
-    <!-- <script src="js/validaciones.js"></script> -->
 </body>
 </html>
 
