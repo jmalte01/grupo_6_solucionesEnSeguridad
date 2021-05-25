@@ -1,43 +1,70 @@
-# grupo_6_solucionesEnSeguridad
-Proyecto integrador equipo 6 - Digital House
+# Getting Started with Create React App
 
-## Descripción del proyecto
-### Productos
-Se trata de un e-commerce dedicado a ofrecer productos y servicios de seguridad física, electrónica e informática, con una amplia gama de soluciones orientadas a las necesidades del consumidor.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Público objetivo
-Personas físicas de 18 años en adelante, así como empresas, fábricas y oficinas.
+## Available Scripts
 
-## Integrantes
-Luis Rodríguez, venezolano radicado en Montevideo, ingeniero informático de profesión y apasionado por los videojuegos
+In the project directory, you can run:
 
-Juan Martín Altemir, argentino residente en CABA, lic. en psicología con orientación clínica
+### `npm start`
 
-Ramiro Estevez, argentino residente en zona oeste GBA, estudiante de diseño industrial
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Wireframes
-Página de inicio: https://wireframe.cc/pro/pp/d19c6ea0a407867
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-Página de producto: https://wireframe.cc/pro/pp/b4354c342407978
+### `npm test`
 
-Fórmularios de Registro y Login: https://www.figma.com/file/sX065cgbM6tak5fRlrdqX0/Soluciones-en-Seguridad?node-id=0%3A1
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Carrito de compras: https://wireframe.cc/pro/pp/7d0c917c0408356
+### `npm run build`
 
-Paleta de colores : https://coolors.co/e7ecef-274c77-6096ba-a3cef1-8b8c89
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Tableros de trabajo de cada sprint
-https://trello.com/b/FBz7aXwU/sprint-n1-g6
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-https://trello.com/b/657ByEtn/sprint-n2-g6
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Referentes
-http://identitronics.online/ --> Es una referencia interesante en relación al modo de presentación de la información de los productos, además de la variedad de productos que ofrece dentro de la rama.
+### `npm run eject`
 
-https://www.spycameracctv.com/ --> Con un diseño atractivo y dinámico, representa una forma interesante de acercar al público sus productos. Especializada en circuitos cerrados de televisión, es una referencia obligada dentro del rubro.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-https://www.argseguridad.com/mobile/index.php --> Una referencia local que muestra las posibilidades de abrir la gama de servicios ofrecidos, incluyendo cursos y capacitaciones. Si bien no coincide completamente con la estética que se busca en el presente proyecto, ofrece un modelo a partir del cual es posible aprovechar determinadas funcionalidades.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-https://www.tanyx.com.ar/index.php --> Es el e-commerce que más se acerca al objetivo del presente proyecto. en relación a diseño, funcionalidad y variedad de productos y servicios ofrecidos.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-http://cctvymas.com/esp --> Es otra referencia obligada dentro del rubro de CCTV. Con un diseño simple y claro de catálogo, ofrece un diseño conciso para acercar al posible cliente a la compra del producto.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

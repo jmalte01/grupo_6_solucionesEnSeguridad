@@ -13,20 +13,12 @@ function validaciones() {
         
 
     if(firstNameResult == false)  {
-<<<<<<< HEAD
-     window.alert('Por favor indica tu nombre');
-=======
      window.alert('Por favor indica un nombre válido');
->>>>>>> @{u}
     return false;
     }
 
     if(lastNameResult == false)  {
-<<<<<<< HEAD
-     window.alert('Por favor indica tu apellido');
-=======
      window.alert('Por favor indica un apellido válido');
->>>>>>> @{u}
     return false;
     }
 

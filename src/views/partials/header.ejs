@@ -1,23 +1,45 @@
-<header class="menu">
-    <div class="menu-wrap">
-        <a href="/" ><img src="/img/ses.jpg" class="logo-img" alt="Logo"></a>
-        <input type="checkbox" id="checkbox">
-        <nav>
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/catalogo">Catálogo</a></li>
-                <li><a href="/shoppingCart">Ver carrito <span><i class="fa fa-shopping-cart"></i></span></a></li>
-                <% if(locals.usuario) { %> 
-                    <li><a href="/admin/administrar">Administar</a></li>
+
+        <nav class="navbar navbar-expand-lg navbar-light yale">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/"><img src="/img/ses.jpg" /></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav white">
+                  <li class="nav-item white">
+                    <a class="nav-link active white" aria-current="page" href="/">Inicio</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle white" href="/catalogo" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Catálogo
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item white" href="/categoria/1">Vigilancia</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/2">Acceso</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/3">Conectividad</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/4">Intrusion</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/5">Porteria</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/6">Accesorios</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link white" href="/shoppingCart"><span><i class="fa fa-shopping-cart"></i></span> Ver carrito</a>
+                  </li>
+                  <% if(locals.usuario) { %> 
+                    <li><a href="/admin/administrar">Administrar</a></li>
                     <li><a href="/logout">Cerrar Sesión</a></li>
                 <% } else { %>  
                     <li><a href="/register">Registro</a></li>
                     <li><a href="/login">Iniciar Sesión</a></li>
                 <%}%> 
-            </ul>
-        </nav>
-        <label for="checkbox">
-            <i class="fa fa-bars menu-icon"></i>
-        </label>
-    </div>
-</header>
+                  
+                </ul>
+                <form action="/search" method="POST" class="d-flex">
+                    <input type="text" placeholder="Buscar productos" name="search" class="form-control me-2">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    
+                  </form>
+              </div>
+            </div>
+          </nav>
