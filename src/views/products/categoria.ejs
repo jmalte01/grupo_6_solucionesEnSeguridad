@@ -6,12 +6,12 @@
     
     <br/>
     <section>
-      <h2 class="ofertas">Ofertas</h2>
+      <h2 class="ofertas">Productos</h2>
     </section>
     <section class="productos">
         <div class="flex-container">
             <% productos.forEach( producto => { %>
-                <div class="flex-item">
+                <div class="flex-item search-result">
                     <a href="productDetail/<%= producto.id %>"><img src="/img/<%= producto.image %>" /></a>
                     <div class="detalles">
                         <div class="descripcion-container">

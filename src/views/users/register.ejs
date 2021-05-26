@@ -15,11 +15,12 @@
                  </ul>
              <%}%>    
             <form name="RegForm" action="/register" onsubmit=" return validaciones()" method="POST" enctype="multipart/form-data">
-                <p><span><input type="text" name="first_name" id="first_name" placeholder="Nombre" ></span><span>
-                <input type="text" name="last_name" id="last_name" placeholder="Apellido" ></span></p>
-                <input type="email" name="email" id="email" placeholder="tucorreo@email.com" >
-                <input type="password" name="password" id="password" placeholder="Contraseña" >
-                <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repetir Contraseña">
+                <p><span>
+                <input type="text" required pattern="[a-zA-Z\W+]{2,80}" title="Solo letras y espacios" name="first_name" id="first_name" placeholder="Nombre" ></span><span>
+                <input type="text" required pattern="[a-zA-Z\W+]{2,80}" title="Solo letras y espacios" name="last_name" id="last_name" placeholder="Apellido" ></span></p>
+                <input type="email" required name="email" id="email" placeholder="tucorreo@email.com" >
+                <input type="password" required name="password" id="password" placeholder="Contraseña" >
+                <input type="password" required name="repeatPassword" id="repeatPassword" placeholder="Repetir Contraseña">
                 <div class="image-uploa">
                     <label for="file-input">
                         Foto de perfil

@@ -27,11 +27,11 @@
                     <a class="nav-link white" href="/shoppingCart"><span><i class="fa fa-shopping-cart"></i></span> Ver carrito</a>
                   </li>
                   <% if(locals.usuario) { %> 
-                    <li><a href="/admin/administrar">Administrar</a></li>
-                    <li><a href="/logout">Cerrar Sesión</a></li>
+                    <li class="white-top"><a class="white-top" href="/admin/administrar">Administrar</a></li>
+                    <li><a class="white-top" href="/logout">Cerrar Sesión</a></li>
                 <% } else { %>  
-                    <li><a href="/register">Registro</a></li>
-                    <li><a href="/login">Iniciar Sesión</a></li>
+                    <li ><a class="white-top" href="/register">Registro</a></li>
+                    <li><a class="white-top" href="/login">Iniciar Sesión</a></li>
                 <%}%> 
                   
                 </ul>

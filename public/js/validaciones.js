@@ -11,22 +11,14 @@ function validaciones() {
     let lastNameResult = lastNameRGEX.test(lastName);
     let emailResult = emailRGEX.test(email);
         
-
+/*
     if(firstNameResult == false)  {
-<<<<<<< HEAD
-     window.alert('Por favor indica tu nombre');
-=======
      window.alert('Por favor indica un nombre válido');
->>>>>>> @{u}
     return false;
     }
 
     if(lastNameResult == false)  {
-<<<<<<< HEAD
-     window.alert('Por favor indica tu apellido');
-=======
      window.alert('Por favor indica un apellido válido');
->>>>>>> @{u}
     return false;
     }
 
@@ -34,10 +26,10 @@ function validaciones() {
      window.alert('Por favor indica un email válido');
     return false;
     }
+*/
 
-
-    if (password.length < 6) {
-        window.alert("Por favor indica una contraseña de 6 o mas caracteres");
+    if (password.length < 8) {
+        window.alert("Por favor indica una contraseña de 8 o mas caracteres");
         return false;
     }
 
@@ -49,5 +41,4 @@ function validaciones() {
     return false;  
     }  
 
-    return true;
 }

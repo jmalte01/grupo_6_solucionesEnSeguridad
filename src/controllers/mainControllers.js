@@ -7,8 +7,8 @@ const Op = sequelize.Op
 
 module.exports = {
     index: (req, res) => {
-        let discounted = Products.findAll({where:{discount:{[Op.gt]:0}}})
-        let recentlyAdded = Products.findAll({ limit: 4, order: [["createdAt", "DESC"]]})
+        let discounted = Products.findAll({ limit: 10, where:{discount:{[Op.gt]:0}}})
+        let recentlyAdded = Products.findAll({ limit: 2, order: [["createdAt", "DESC"]]})
         Promise.all([discounted, recentlyAdded])
         .then(([discounted, recentlyAdded]) => {
             res.render(path.resolve(__dirname, '../views/index'), {
