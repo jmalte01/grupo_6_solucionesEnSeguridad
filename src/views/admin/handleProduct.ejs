@@ -30,7 +30,7 @@
                           <td><%= producto.productName%> </td>
                           <td><a href="/productDetail/<%= producto.id%> "> <ion-icon name="eye-outline"></ion-icon></a></td>
                           <td><a href="/admin/editar/<%= producto.id%> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
-                          <td><form action="/admin/delete/<%= producto.id%>?_method=DELETE" method="POST"><button onclick = " return myFunction()" type="submit"><ion-icon name="trash-outline"></ion-icon></ion-icon></button></form></td>
+                          <td><form action="/admin/delete/<%= producto.id%>?_method=DELETE" method="POST"><button onclick = " return eliminar()" type="submit"><ion-icon name="trash-outline"></ion-icon></ion-icon></button></form></td>
                         </tr>
                         <% }); %>
                       </tbody>
@@ -38,7 +38,7 @@
                   </article>       
                 </section>
                 <script>
-                  function myFunction() {
+                  function eliminar() {
                   let result =  confirm("Estás seguro que quieres eliminar el producto?");
                     if (result==false) {
                       return event.preventDefault();

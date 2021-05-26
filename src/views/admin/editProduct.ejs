@@ -22,7 +22,7 @@
                <%});%>
             </ul>
         <%}%>
-        <h2 class="blue">Agregar un nuevo producto</h2>
+        <h2 class="blue">Editar un producto</h2>
         <form action="/admin/editar/<%= producto.id%>?_method=PUT" method="POST" onsubmit=" return validaciones()" enctype="multipart/form-data" id="formulario">
             <div>
                 <img src="/img/<%= producto.image %>" alt="Imagen de <%= producto.productName %>">
