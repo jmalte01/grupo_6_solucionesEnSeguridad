@@ -29,14 +29,28 @@
                           <td><%= producto.id%> </td>
                           <td><%= producto.productName%> </td>
                           <td><a href="/productDetail/<%= producto.id%> "> <ion-icon name="eye-outline"></ion-icon></a></td>
+<<<<<<< HEAD:src/views/admin/products/handleProduct.ejs
                           <td><a href="/admin/editarProducto/<%= producto.id%> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
                           <td><form action="/admin/eliminarProducto/<%= producto.id%>?_method=DELETE" method="POST"><button type="submit"><ion-icon name="trash-outline"></ion-icon></ion-icon></button></form></td>
+=======
+                          <td><a href="/admin/editar/<%= producto.id%> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
+                          <td><form action="/admin/delete/<%= producto.id%>?_method=DELETE" method="POST"><button onclick = " return eliminar()" type="submit"><ion-icon name="trash-outline"></ion-icon></ion-icon></button></form></td>
+>>>>>>> 2dec51e00300c2289550e673d8c90b6c88ee632e:src/views/admin/handleProduct.ejs
                         </tr>
                         <% }); %>
                       </tbody>
                     </table> 
                   </article>       
                 </section>
+                <script>
+                  function eliminar() {
+                  let result =  confirm("Estás seguro que quieres eliminar el producto?");
+                    if (result==false) {
+                      return event.preventDefault();
+                    }
+                     
+                  }
+                  </script>
                 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
             </main>
         <%- include('../../partials/footer'); %>

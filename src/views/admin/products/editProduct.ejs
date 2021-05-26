@@ -11,8 +11,13 @@
                <%});%>
             </ul>
         <%}%>
+<<<<<<< HEAD:src/views/admin/products/editProduct.ejs
         <h2 class="blue">Agregar un nuevo producto</h2>
         <form action="/admin/editarProducto/<%= producto.id%>?_method=PUT" method="POST" onsubmit=" return validaciones()" enctype="multipart/form-data" id="formulario">
+=======
+        <h2 class="blue">Editar un producto</h2>
+        <form action="/admin/editar/<%= producto.id%>?_method=PUT" method="POST" onsubmit=" return validaciones()" enctype="multipart/form-data" id="formulario">
+>>>>>>> 2dec51e00300c2289550e673d8c90b6c88ee632e:src/views/admin/editProduct.ejs
             <div>
                 <img src="/img/<%= producto.image %>" alt="Imagen de <%= producto.productName %>">
                 <input type="file" name="imagen">

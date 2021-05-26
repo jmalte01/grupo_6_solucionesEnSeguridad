@@ -199,3 +199,14 @@ a {
 li {
 list-style-type: none;
 }
+
+
+.detalle-footer {
+  margin: 1rem 0rem;
+    background-color: #ececef;
+    text-align: center;
+    padding-top: 1rem;
+}
+.incrementador {
+  display: inline-flex;
+}

@@ -114,7 +114,7 @@ nav ul li {
 }
 nav ul li a {
   display: inline-block;
-  padding: 6px;
+  padding: 4px;
   /* Add your custom styles below to change appearance of links */
   color: #dae1e7;
   text-decoration: none;
@@ -254,8 +254,8 @@ img {
 }*/
 
 .flex-item {
-  flex: initial;
-  /* height: 100%; */
+ /* flex: calc(25% - 1em);*/
+  width: 100%; 
   margin-bottom: 3rem;
   background-color: #ececef;
   padding-top: 1rem;
@@ -287,7 +287,7 @@ img {
 /* desktop */
 @media screen and (min-width: 960px) {
   .flex-item {
-    flex: initial;
+    flex: calc(25% - 1em);
   }
 }
 
@@ -306,7 +306,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 75px;
+  max-height: 50px;
 }
 
 .precio-container{
@@ -318,6 +318,8 @@ img {
   height: 30px
   
 }
+
+
 
 .verMas{
   border: none; outline: none; 
@@ -343,16 +345,23 @@ img {
   height: 400px;
   width: 100%;
 }
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
+
+.search-result {
+  flex: inherit !important;
+  max-width: 313px !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .white-top {
+  color: white !important;
+  padding-top: 8px;
+}
+}
+
+.white-top:hover {
+  text-decoration: underline;
+}
