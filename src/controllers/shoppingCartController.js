@@ -8,15 +8,10 @@ const shoppingCartItems = db.ShoppingCartItem
 
 const shoppingCartController = {
     shoppingCart: (req,res) => {
-        shoppingCartItems.findAll({
-            where: {
-                userId: req.session.usuario.id,
-                status: 1
-            }
-        })
-        .then((shoppingCartItems)=>{
+        products.findAll({ limit: 4, order: [["createdAt", "DESC"]]})
+        .then((productos)=>{
             res.render(path.resolve(__dirname, '../views/shoppingCart/shoppingCart'), {
-                items: shoppingCartItems,
+                productos,
                 styles: ["index.css", "footer.css", "carrito.css"],
                 title: "Carrito de Compra"
             });

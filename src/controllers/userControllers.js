@@ -19,7 +19,7 @@ const userControllers = {
             const errors = validationResult(req);             //return res.send(errors.mapped());
             if(errors.isEmpty()){
                 Users.findOne({
-                    email:req.body.email
+                    where:{email:req.body.email}
                 })                                              //return res.send(userLogin);
                 .then((user) => {
                     delete user.password;
@@ -30,7 +30,6 @@ const userControllers = {
                     return res.redirect('/');
                 })
                 .catch(error => console.log(error))
-
             }else{
                 res.render(path.resolve(__dirname, '../views/users/login'),{
                     errors: errors.array(),
@@ -45,12 +44,18 @@ const userControllers = {
             res.redirect('/')
         },
         register: (req, res) => {
-                return  res.render(path.resolve(__dirname, '../views/users/register'), {
+            return  res.render(path.resolve(__dirname, '../views/users/register'), {
+             styles: ["register.css", "footer.css", "index.css"],
+             title: "Registrarme"
+            })
+        },
+        registerComercial: (req, res) => {
+                return  res.render(path.resolve(__dirname, '../views/users/registerComercial'), {
                  styles: ["register.css", "footer.css", "index.css"],
                  title: "Registrarme"
             })
         },
-        create:  (req, res) => {
+        createComercial:  (req, res) => {
             let errors = validationResult(req);
             if (errors.isEmpty()) {
                 Users.create({
@@ -65,31 +70,37 @@ const userControllers = {
                     return res.redirect('/registerMessage');
                 })
                 .catch(error => res.send(error));
-
-            //     let user = {
-            //         first_name: req.body.first_name,
-            //         last_name: req.body.last_name,
-            //         email: req.body.email,
-            //         password: bcrypt.hashSync(req.body.password, 10),
-            //         avatar:  req.file ? req.file.filename : '',
-            //         role: 1
-            //     }
-            //     let usersFile = fs.readFileSync(path.resolve(__dirname, '../database/users.json'), {
-            //         encoding: 'utf-8'
-            //     });
-            //     let users;
-            //     if (usersFile == "") {
-            //         users = [];
-            //     } else {
-            //         users = JSON.parse(usersFile);
-            //     };
-            //     users.push(user);
-            //     usersJSON = JSON.stringify(users, null, 2);
-            //     fs.writeFileSync(path.resolve(__dirname, '../database/users.json'), usersJSON);
-            //     res.redirect('/registerMessage');
-
             } else {
-                return res.render(path.resolve(__dirname, '../views/users/register'), {
+                return res.render(path.resolve(__dirname, '../views/users/registerComercial'), {
+                    errors: errors.array(),
+                    styles: ["register.css", "footer.css", "index.css"],
+                    title: "Registrarme"
+                });
+            }
+        },
+        registerCorporate: (req, res) => {
+            return  res.render(path.resolve(__dirname, '../views/users/registerCorporate'), {
+             styles: ["register.css", "footer.css", "index.css"],
+             title: "Registrarme"
+            })
+        },
+        createCorporate:  (req, res) => {
+            let errors = validationResult(req);
+            if (errors.isEmpty()) {
+                Users.create({
+                    companyName: req.body.companyName,
+                    cuit: req.body.cuit,
+                    email: req.body.email,
+                    password: bcrypt.hashSync(req.body.password, 10),
+                    avatar:  req.file ? req.file.filename : '',
+                    role: 2
+                })
+                .then(() => {
+                    return res.redirect('/registerMessage');
+                })
+                .catch(error => res.send(error));
+            } else {
+                return res.render(path.resolve(__dirname, '../views/users/registerCorporate'), {
                     errors: errors.array(),
                     styles: ["register.css", "footer.css", "index.css"],
                     title: "Registrarme"

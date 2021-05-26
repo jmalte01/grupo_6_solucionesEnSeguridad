@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head'); %>
+<%- include('../../partials/head'); %>
 <body>
-    <%- include('../partials/header') %>
+    <%- include('../../partials/header') %>
     <main>
         <% if(typeof(errors) != 'undefined'){%>
             <ul class="alert alert-danger">
@@ -12,7 +12,7 @@
              </ul>
          <%}%>    
         <h2 class="blue">Agregar un nuevo producto</h2>
-        <form action="/admin/crear" method="POST" onsubmit=" return validaciones()" enctype="multipart/form-data" id="formulario">
+        <form action="/admin/crearProducto" method="POST" onsubmit=" return validaciones()" enctype="multipart/form-data" id="formulario">
             <label for="articulo">Articulo</label>
             <input type="text" name="articulo">
             <label for="descripcion">Describir</label>
@@ -46,7 +46,7 @@
             <button type="submit">Crear Producto</button>
         </form>
     </main>
-    <%- include('../partials/footer') %>
+    <%- include('../../partials/footer') %>
     <script src="js/createEditProduct.js"></script>
 </body>
 </html>

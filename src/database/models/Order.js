@@ -6,15 +6,48 @@ module.exports =  (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        user_id:{type: dataTypes.INTEGER},
-        shipping_adress:{type: dataTypes.STRING},
-        order_date:{type: dataTypes.DATE},
-        order_status:{type: dataTypes.INTEGER}
+        total:{type: dataTypes.INTEGER},
+        status:{type: dataTypes.INTEGER},
+        userId:{type: dataTypes.INTEGER},
+        paymentId:{type: dataTypes.INTEGER},
+        shippingId:{
+            type: dataTypes.INTEGER,
+            allowNull:true
+        },
+
     }
     let config = {
         tableName: "orders",
         timestamps: false
     }
     const Order = sequelize.define(alias, cols, config);
+
+    Order.associate = function (models) {
+        Order.belongsTo(models.Payment,
+            {
+                as: "payment",
+                foreingKey: "paymentId"
+            }
+        );
+    }
+
+    Order.associate = function (models) {
+        Order.belongsTo(models.User,
+            {
+                as: "user",
+                foreingKey: "userId"
+            }
+        );
+    }
+
+    Order.associate = function (models) {
+        Order.belongsTo(models.ShippingOrder,
+            {
+                as: "shippingOrder",
+                foreingKey: "shippingId"
+            }
+        );
+    }
+
     return Order;
 }

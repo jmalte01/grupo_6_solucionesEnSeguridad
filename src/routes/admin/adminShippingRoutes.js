@@ -3,10 +3,12 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { body } = require('express-validator');
-const adminControllers = require(path.resolve(__dirname,'../controllers/adminControllers'));
-const userLogged = require('../middlewares/userLogged');
+const adminShippingControllers = require('../../controllers/admin/adminShippingControllers');
+const userLogged = require('../../middlewares/userLogged');
+const userAdmin = require('../../middlewares/userAdmin');
+const userSuperAdmin = require('../../middlewares/userSuperAdmin');
 
-var storage = multer.diskStorage({
+let storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.resolve(__dirname, '../../public/img'));
     },
@@ -72,35 +74,32 @@ const validacionesCreate = [
 ];
 
 const validacionesImagenCreate = [
-    body('imagen').custom((value, {req}) =>{
-
-        if (req.file == undefined) return false;
-
-            return true;
-  }).withMessage('Debe cargar una imagen válida')
-  .bail()
-  .custom((value, {req}) =>{
-
+    body('imagen').custom((value, {req,}) =>{
+        if(req.file == undefined){
             let filetype = req.file.mimetype
             switch (filetype) {
                 case 'image/jpg':
-                    return true;
-                case 'image/jpeg':
-                    return true;
-                case  'image/png':
-                    return true;
-                default:
                     return false;
-
+                case 'image/jpeg':
+                    return false;
+                case  'image/png':
+                    return false;
+                default:
+                    return true;
         }
-  }).withMessage('Debe elegir una imagen en formato: .JPG ó JPEG ó PNG')
-]
+    }}).withMessage('Debe elegir una imagen en formato: .JPG ó JPEG ó PNG')
+];
 
+router.get('/admin/envios', userLogged, userSuperAdmin, adminShippingControllers.all)
+router.get('/admin/envios/pendientes', userLogged, userSuperAdmin, adminShippingControllers.pending)
+router.get('/admin/envios/entregados', userLogged, userSuperAdmin, adminShippingControllers.delivered)
+router.post('/admin/envios/buscar', userLogged, userSuperAdmin, adminShippingControllers.search)
 
-router.get('/admin/administrar', userLogged, adminControllers.index);
-router.get('/admin/crear', userLogged, adminControllers.crear);
-router.post('/admin/crear', validacionesCreate, upload.single('imagen'), validacionesImagenCreate, adminControllers.save);
-router.get('/admin/editar/:id', userLogged, adminControllers.editar);
-router.put('/admin/editar/:id', validacionesEdit, upload.single('imagen'), validacionesImagenEdit, adminControllers.update);
-router.delete('/admin/delete/:id', adminControllers.delete);
+router.get('/admin/envios/detalle/:id', userLogged, userAdmin, adminShippingControllers.detail);
+
+router.get('/admin/editarUsuario/:id', userLogged, userAdmin, adminShippingControllers.edit);
+router.put('/admin/editarUsuario/:id', userLogged, userAdmin,validacionesEdit, adminShippingControllers.update);
+
+router.delete('/admin/eliminarUsuario/:id',userLogged, userAdmin, adminShippingControllers.delete);
+
 module.exports = router;

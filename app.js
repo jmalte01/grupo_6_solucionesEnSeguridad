@@ -10,7 +10,11 @@ const cookieParser = require('cookie-parser');
 const mainRoutes = require('./src/routes/main');
 const productRoutes = require('./src/routes/products');
 const userRoutes = require('./src/routes/users');
-const adminRoutes = require('./src/routes/admin');
+const adminProductRoutes = require('./src/routes/admin/adminProductRoutes');
+const adminUsersRoutes = require('./src/routes/admin/adminUsersRoutes');
+const adminSalesRoutes = require('./src/routes/admin/adminSalesRoutes');
+const adminShippingRoutes = require('./src/routes/admin/adminShippingRoutes');
+const adminPaymentRoutes = require('./src/routes/admin/adminPaymentRoutes');
 const usersAPI = require('./src/routes/api/users');
 const productsAPI = require('./src/routes/api/products');
 const cartRoutes = require ('./src/routes/shoppingCart')
@@ -62,7 +66,11 @@ app.use(acceso);
 app.use(mainRoutes);
 app.use(userRoutes);
 app.use(productRoutes);
-app.use(adminRoutes);
+app.use(adminProductRoutes);
+app.use(adminUsersRoutes);
+app.use(adminSalesRoutes);
+app.use(adminShippingRoutes);
+app.use(adminPaymentRoutes);
 app.use(cartRoutes);
 
 /**********************************************    

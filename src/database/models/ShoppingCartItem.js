@@ -55,7 +55,7 @@ module.exports = function(sequelize, dataTypes){
         });
     }
     shoppingCartItems.associate = function (models){
-        shoppingCartItems.belongsTo(models.ShoppingCart, {
+        shoppingCartItems.belongsTo(models.Order, {
             as: "ShoppingCart",
             foreignKey: "cartId",
         });

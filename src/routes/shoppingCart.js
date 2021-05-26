@@ -6,7 +6,7 @@ const userLogged = require('../middlewares/userLogged');
 
 let validaciones = [body("cantidad").custom((value) => value > 0).withMessage("Debe agregar almenos un producto a su carrito")];
 
-router.get('/shoppingCart', shoppingCartController.shoppingCart);
+router.get('/shoppingCart', userLogged,shoppingCartController.shoppingCart);
 router.post('/shoppingCart/addCart', userLogged, validaciones, shoppingCartController.addCart);
 
 module.exports = router;

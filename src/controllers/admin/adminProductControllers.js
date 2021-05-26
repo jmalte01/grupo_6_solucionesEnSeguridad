@@ -1,30 +1,28 @@
 const path = require('path');
-const fs = require('fs');
-const db = require('../database/models');
+const db = require('../../database/models');
 const {validationResult} = require('express-validator')
-const dbProduct = db.Product;
+const Products = db.Product;
 const Categories = db.Category;
 const Subcategories = db.Subcategory;
 
+const adminProductControllers = {
 
-const adminControllers = {
-
-    index: (req, res) => {
-        dbProduct.findAll()
-        .then ((productos)=>{res.render(path.resolve(__dirname, '../views/admin/handleProduct'), {
+    products: (req, res) => {
+        Products.findAll()
+        .then ((productos)=>{res.render(path.resolve(__dirname, '../../views/admin/products/handleProduct'), {
             productos,
             styles: ["index.css", "footer.css", "handleProduct.css"],
-            title: "Panel de Administración"
+            title: "Panel de Administracion"
         })})
         .catch(error => res.send(error))
     },
-    crear: (req, res) => {
+    createProduct: (req, res) => {
         const allCategories = Categories.findAll();
         const allSubcategories = Subcategories.findAll();
         Promise.all([allCategories, allSubcategories ])
         .then( ([allCategories, allSubcategories ]) => 
         
-        res.render(path.resolve(__dirname, '../views/admin/newProduct'), {
+        res.render(path.resolve(__dirname, '../../views/admin/products/newProduct'), {
             allCategories,
             allSubcategories,
             styles: ["index.css", "footer.css", "newProduct.css"],
@@ -32,12 +30,11 @@ const adminControllers = {
         }))
         .catch(error => res.send(error)) 
     },
-
-    save: (req, res) => {
+    saveProduct: (req, res) => {
         let errors = validationResult(req);
         console.log(errors);
         if (errors.isEmpty()){
-            dbProduct.create ({
+            Products.create ({
                 sku: req.body.sku,
                 categoryId: req.body.categoria,
                 subcategoryId: req.body.subcategoria,
@@ -51,7 +48,7 @@ const adminControllers = {
                 status: req.body.status
             })
             .then(()=>{
-                return res.redirect('/admin/administrar');
+                return res.redirect('/admin/productos');
             })
             .catch(error => res.send(error))
         }else{     
@@ -60,7 +57,7 @@ const adminControllers = {
             Promise.all([allCategories, allSubcategories ])
             .then( ([allCategories, allSubcategories ]) => 
             
-            res.render(path.resolve(__dirname, '../views/admin/newProduct'), {
+            res.render(path.resolve(__dirname, '../../views/admin/products/newProduct'), {
                 allCategories,
                 allSubcategories,
                 styles: ["index.css", "footer.css", "newProduct.css"],
@@ -71,13 +68,13 @@ const adminControllers = {
         }
         
     },
-    editar: (req, res) => {
+    editProduct: (req, res) => {
         let allCategories = Categories.findAll();
         let allSubcategories = Subcategories.findAll();
-        let products = dbProduct.findByPk (req.params.id)
+        let products = Products.findByPk (req.params.id)
         Promise.all([allCategories, allSubcategories, products])
         .then(([allCategories, allSubcategories,products]) =>
-        {res.render(path.resolve(__dirname, `../views/admin/editProduct`), {
+        {res.render(path.resolve(__dirname, `../../views/admin/products/editProduct`), {
             categorias: allCategories,
             subcategorias: allSubcategories,
             producto: products,
@@ -86,10 +83,10 @@ const adminControllers = {
         })})
         .catch(error => res.send(error))
     },
-    update: (req, res) => {
+    updateProduct: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()){
-            dbProduct.update({
+            Products.update({
                 sku: req.body.sku,
                 category: req.body.categoria.value,
                 subcategory: req.body.subcategoria.value,
@@ -107,16 +104,16 @@ const adminControllers = {
                 }
             })
             .then(()=>{
-                return res.redirect('/admin/administrar');
+                return res.redirect('/admin/productos');
             })
             .catch(error => res.send(error))
         }else{
             const allCategories = Categories.findAll();
             const allSubcategories = Subcategories.findAll();
-            const products = dbProduct.findByPk (req.params.id)
+            const products = Products.findByPk (req.params.id)
             Promise.all([allCategories, allSubcategories,products])
             .then( ([allCategories, allSubcategories,products]) =>
-            {res.render(path.resolve(__dirname, `../views/admin/editProduct`), {
+            {res.render(path.resolve(__dirname, `../../views/admin/products/editProduct`), {
                 errors: errors.array(),
                 categorias: allCategories,
                 subcategorias: allSubcategories,
@@ -127,20 +124,20 @@ const adminControllers = {
             .catch(error => res.send(error))
         }
     },
-    delete: (req, res) => {
-        dbProduct.destroy({
+    deleteProduct: (req, res) => {
+        Products.destroy({
             where:{
                 id: req.params.id
             }
         })
         .then(()=>{
-            return res.redirect('/admin/administrar');
+            return res.redirect('/admin/productos');
         })
         .catch(error => res.send(error))
     }
 };
 
-module.exports = adminControllers;
+module.exports = adminProductControllers;
 
 
 
