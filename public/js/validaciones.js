@@ -11,22 +11,7 @@ function validaciones() {
     let lastNameResult = lastNameRGEX.test(lastName);
     let emailResult = emailRGEX.test(email);
         
-/*
-    if(firstNameResult == false)  {
-     window.alert('Por favor indica un nombre válido');
-    return false;
-    }
 
-    if(lastNameResult == false)  {
-     window.alert('Por favor indica un apellido válido');
-    return false;
-    }
-
-    if(emailResult == false)  {
-     window.alert('Por favor indica un email válido');
-    return false;
-    }
-*/
 
     if (password.length < 8) {
         window.alert("Por favor indica una contraseña de 8 o mas caracteres");

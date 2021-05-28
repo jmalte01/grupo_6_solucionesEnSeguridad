@@ -28,8 +28,7 @@ app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use('/api/users', usersAPI);
-app.use('/api/products', productsAPI);
+
 
 app.set('puerto', process.env.PORT || "3001");
 
@@ -64,6 +63,8 @@ app.use(userRoutes);
 app.use(productRoutes);
 app.use(adminRoutes);
 app.use(cartRoutes);
+app.use('/api/users', usersAPI);
+app.use('/api/products', productsAPI);
 
 /**********************************************    
 Faltan implementar: carrito, mensaje de registro, catálogo, 

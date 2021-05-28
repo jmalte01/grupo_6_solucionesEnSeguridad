@@ -37,14 +37,14 @@ function ContentRowTop(){
 					</div>
 				
 					{/*<!-- Content Row Movies-->*/}
-					<ContentRowCards productsQuantity={productsList.length + 1} usersQuantity={usersList.length} />
+					<ContentRowCards productsQuantity={productsList.length} usersQuantity={usersList.length} />
 					{/*<!-- End movies in Data Base -->*/}
 					
 	
 					{/*<!-- Content Row Last Movie in Data Base -->*/}
 					<div className="row">
 						{/*<!-- Last Movie in DB -->*/}
-						<LastProduct idLastProduct={productsList.length + 1}/> 
+						<LastProduct idLastProduct={productsList.length + 2}/> 
 						{/*<!-- End content row last movie in Data Base -->*/}
 
 						{/*<!-- Users in DB -->*/}
