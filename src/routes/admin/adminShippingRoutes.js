@@ -7,6 +7,8 @@ const adminShippingControllers = require('../../controllers/admin/adminShippingC
 const userLogged = require('../../middlewares/userLogged');
 const userAdmin = require('../../middlewares/userAdmin');
 const userSuperAdmin = require('../../middlewares/userSuperAdmin');
+const userShipping = require('../../middlewares/userShipping');
+
 
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -90,16 +92,18 @@ const validacionesImagenCreate = [
     }}).withMessage('Debe elegir una imagen en formato: .JPG ó JPEG ó PNG')
 ];
 
-router.get('/admin/envios', userLogged, userSuperAdmin, adminShippingControllers.all)
-router.get('/admin/envios/pendientes', userLogged, userSuperAdmin, adminShippingControllers.pending)
-router.get('/admin/envios/entregados', userLogged, userSuperAdmin, adminShippingControllers.delivered)
-router.post('/admin/envios/buscar', userLogged, userSuperAdmin, adminShippingControllers.search)
+router.get('/admin/envios', userLogged, userShipping, adminShippingControllers.all)
+router.get('/admin/envios/pendientes', userLogged, userShipping, adminShippingControllers.pending)
+router.get('/admin/envios/procesando', userLogged, userShipping, adminShippingControllers.delivered)
+router.get('/admin/envios/enviando', userLogged, userShipping, adminShippingControllers.delivered)
+router.get('/admin/envios/entregados', userLogged, userShipping, adminShippingControllers.delivered)
+router.post('/admin/envios/buscar', userLogged, userShipping, adminShippingControllers.search)
 
-router.get('/admin/envios/detalle/:id', userLogged, userAdmin, adminShippingControllers.detail);
+router.get('/admin/envios/detalle/:id', userLogged, userShipping, adminShippingControllers.detail);
 
-router.get('/admin/editarUsuario/:id', userLogged, userAdmin, adminShippingControllers.edit);
-router.put('/admin/editarUsuario/:id', userLogged, userAdmin,validacionesEdit, adminShippingControllers.update);
+router.get('/admin/enviar/editar/:id', userLogged, userSuperAdmin, adminShippingControllers.edit);
+router.put('/admin/enviar/editar/:id', userLogged, userSuperAdmin,validacionesEdit, adminShippingControllers.update);
 
-router.delete('/admin/eliminarUsuario/:id',userLogged, userAdmin, adminShippingControllers.delete);
+router.delete('/admin/enviar/eliminar/:id',userLogged, userShipping, adminShippingControllers.delete);
 
 module.exports = router;

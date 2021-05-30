@@ -13,7 +13,7 @@ module.exports =  (sequelize, dataTypes) => {
         shippingId:{
             type: dataTypes.INTEGER,
             allowNull:true
-        },
+        }
 
     }
     let config = {
@@ -23,8 +23,7 @@ module.exports =  (sequelize, dataTypes) => {
     const Order = sequelize.define(alias, cols, config);
 
     Order.associate = function (models) {
-        Order.belongsTo(models.Payment,
-            {
+        Order.belongsTo(models.Payment,{
                 as: "payment",
                 foreingKey: "paymentId"
             }
@@ -32,8 +31,7 @@ module.exports =  (sequelize, dataTypes) => {
     }
 
     Order.associate = function (models) {
-        Order.belongsTo(models.User,
-            {
+        Order.belongsTo(models.User,{
                 as: "user",
                 foreingKey: "userId"
             }
@@ -41,12 +39,33 @@ module.exports =  (sequelize, dataTypes) => {
     }
 
     Order.associate = function (models) {
-        Order.belongsTo(models.ShippingOrder,
-            {
+        Order.belongsTo(models.ShippingOrder,{
                 as: "shippingOrder",
                 foreingKey: "shippingId"
             }
         );
+    }
+
+    
+    Order.associate = function (models) {
+        Order.hasMany(models.Payment,{
+            as: "order",
+            foreingKey: "orderId"
+        });
+    }
+
+    Order.associate = function (models) {
+        Order.hasMany(models.ShippingOrder,{
+            as: "order",
+            foreingKey: "orderId"
+        });
+    }
+
+    Order.associate = function (models) {
+        Order.hasMany(models.ShoppingCartItem,{
+            as: "order",
+            foreingKey: "orderId"
+        });
     }
 
     return Order;

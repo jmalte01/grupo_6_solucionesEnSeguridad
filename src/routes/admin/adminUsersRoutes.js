@@ -90,15 +90,16 @@ const validacionesImagenCreate = [
     }}).withMessage('Debe elegir una imagen en formato: .JPG ó JPEG ó PNG')
 ];
 
+router.get('/admin/adminstrar', userLogged, userAdmin, adminUserControllers.admin)
 
 router.get('/admin/usuarios', userLogged, userSuperAdmin, adminUserControllers.users);
 
-router.get('/admin/crearAdmin', userLogged, userSuperAdmin, adminUserControllers.createAdmin);
-router.post('/admin/crearAdmin', userLogged, userSuperAdmin, validacionesCreate, upload.single('imagen'), validacionesImagenCreate, adminUserControllers.saveAdmin);
+router.get('/admin/usuarios/crearAdmin', userLogged, userSuperAdmin, adminUserControllers.createAdmin);
+router.post('/admin/usuarios/crearAdmin', userLogged, userSuperAdmin, validacionesCreate, upload.single('imagen'), validacionesImagenCreate, adminUserControllers.saveAdmin);
 
-router.get('/admin/editarUsuario/:id', userLogged, userSuperAdmin, adminUserControllers.editUser);
-router.put('/admin/editarUsuario/:id', userLogged, userSuperAdmin,validacionesEdit, upload.single('imagen'), validacionesImagenEdit, adminUserControllers.updateUser);
+router.get('/admin/usuarios/editar/:id', userLogged, userSuperAdmin, adminUserControllers.editUser);
+router.put('/admin/usuarios/editar/:id', userLogged, userSuperAdmin,validacionesEdit, upload.single('imagen'), validacionesImagenEdit, adminUserControllers.updateUser);
 
-router.delete('/admin/eliminarUsuario/:id',userLogged, userSuperAdmin, adminUserControllers.deleteUser);
+router.delete('/admin/usuarios/eliminar/:id',userLogged, userSuperAdmin, adminUserControllers.deleteUser);
 
 module.exports = router;

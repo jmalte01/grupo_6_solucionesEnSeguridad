@@ -7,10 +7,7 @@
                 <br>
                 <section class="row" style="width: 80%; margin: 0 auto;">
                   <article class="col-12 ">
-                    <h2 class="display-6 blue text-center pt-2"><i class="fas fa-users"></i>       Administrador de Usuarios</h2>
-                  </article>
-                  <article class="col-12">
-                    <a href="/admin/usuarios/crearAdmin"><ion-icon name="add-circle-outline"></ion-icon>Agregar un usuario interno</a>
+                    <h2 class="display-6 blue text-center pt-2"><i class="fas fa-cash-register"></i>     Administrador de pagos</h2>
                   </article>
                   <article class="col-12" >
                   <table class="table">
@@ -19,18 +16,22 @@
                           <th scope="col">Id</th>
                           <th scope="col">Nombre</th>
                           <th scope="col">Ver</th>
+                          <% if (rol === 7) { %>
                           <th scope="col">Editar</th>
                           <th scope="col">Borrar</th>
+                          <% }; %>
                         </tr>
                       </thead>
                       <tbody>
-                        <% usuarios.forEach( usuario => { %>
+                        <% pagos.forEach( pago => { %>
                         <tr>
-                          <td><%= usuario.id%> </td>
-                          <td><%= usuario.firstName%> <%= usuario.lastName%></td>
+                          <td><%= pago.id%> </td>
+                          <td><%= pago.orderId%></td>
                           <td><a href="/"> <ion-icon name="eye-outline"></ion-icon></a></td>
-                          <td><a href="/admin/editarUsuario/<%= usuario.id%> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
-                          <td><form action="/admin/eliminarUsuario/<%= usuario.id%>?_method=DELETE" method="POST"><button type="submit"><ion-icon name="trash-outline"></ion-icon></ion-icon></button></form></td>
+                          <% if (rol === 7) { %>
+                          <td><a href="/admin/pagos/editar/<%= pago.id%> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
+                          <td><form action="/admin/pagos/eliminar<%= pago.id%>?_method=DELETE" method="POST"><button type="submit"><ion-icon name="trash-outline"></ion-icon></ion-icon></button></form></td>
+                          <% }; %>
                         </tr>
                         <% }); %>
                       </tbody>

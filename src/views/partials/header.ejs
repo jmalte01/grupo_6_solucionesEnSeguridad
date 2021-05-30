@@ -23,26 +23,45 @@
                         <li><a class="dropdown-item white" href="/categoria/5">Intrusión</a></li>
                         <li><a class="dropdown-item white" href="/categoria/6">Portería</a></li>
                         <li><a class="dropdown-item white" href="/categoria/7">Accesorios</a></li>
-                        
                     </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link white" href="/shoppingCart"><span><i class="fa fa-shopping-cart"></i></span> Ver carrito</a>
+                  <li class="nav-item dropdown">
+                    <% if(parseInt(locals.usuario.role) >= 3)%>
+                    <a class="nav-link dropdown-toggle white" href="/catalogo" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Administrar
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <% if(parseInt(locals.usuario.role) === 3 || parseInt(locals.usuario.role) === 7) { %>
+                        <li><a class="dropdown-item white" href="/admin/pagos">Pagos</a></li>
+                      <%}%>
+                      <% if(parseInt(locals.usuario.role) === 4 || parseInt(locals.usuario.role) === 7) { %>
+                        <li><a class="dropdown-item white" href="/admin/ventas">Ventas</a></li>
+                      <%}%>
+                      <% if(parseInt(locals.usuario.role) === 5 || parseInt(locals.usuario.role) === 7) { %>
+                        <li><a class="dropdown-item white" href="/admin/envios">Envios</a></li>
+                      <%}%>
+                      <% if(parseInt(locals.usuario.role) === 6 || parseInt(locals.usuario.role) === 7) { %>
+                        <li><a class="dropdown-item white" href="/admin/productos">Productos</a></li>
+                      <%}%>
+                      <% if(parseInt(locals.usuario.role) === 7) { %>
+                        <li><a class="dropdown-item white" href="/admin/usuarios">Usuarios</a></li>
+                      <%}%>
+                    </ul> 
                   </li>
-                  <% if(locals.usuario) { %> 
-                    <li class="white-top"><a class="white-top" href="/admin/administrar">Administrar</a></li>
+                  </li>
+                  <% if(locals.usuario) { %>
                     <li><a class="white-top" href="/logout">Cerrar Sesión</a></li>
-                <% } else { %>  
+                  <% } else { %>  
                     <li ><a class="white-top" href="/register">Registro</a></li>
                     <li><a class="white-top" href="/login">Iniciar Sesión</a></li>
-                <%}%> 
-                  
+                  <%}%> 
                 </ul>
                 <form action="/search" method="POST" class="d-flex">
                     <input type="text" placeholder="Buscar productos" name="search" class="form-control me-2">
                     <button type="submit" class="btn btn-primary">Buscar</button>
                     
-                  </form>
+                </form>
+                <a class="nav-link white" href="/carrito"><span><i class="fa fa-shopping-cart"></i></span></a>
               </div>
             </div>
           </nav>

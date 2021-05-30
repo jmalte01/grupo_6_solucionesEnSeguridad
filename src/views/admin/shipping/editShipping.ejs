@@ -11,16 +11,25 @@
                <%});%>
             </ul>
         <%}%>
-        <h2 class="blue">Editar usuario</h2>
-        <form action="/admin/editarUsuario/<%= usuario.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id="formulario">
+        <h2 class="blue">Editar envio</h2>
+        <form action="/admin/envios/editar/<%= envio.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id="formulario">
             <div>
-                <img src="/img/<%= usuario.avatar %>">
-                <input type="file" name="imagen">
+                <p><span><input type="text" name="first_name" id="first_name" placeholder="Nombre" value="<%= envio.%>"></span><span>
+                    <input type="text" name="last_name" id="last_name" placeholder="Apellido" value="<%= envio.%>"></span></p>
+                    <input type="email" name="email" id="email" placeholder="tucorreo@email.com" value="<%= envio.%>">
+                    <input type="text" name="password" id="password" placeholder="Contraseña">
+                    <div class="image-uploa">
+                        <label for="file-input">
+                            Foto de perfil
+                        </label>
+                    <input type="file" name="avatar">
+                    </div>
+                    <input type="submit" value="Enviar" class="boton" >
             </div>
             <div>
-                <p><span><input type="text" name="first_name" id="first_name" placeholder="Nombre" value="<%= usuario.%>"></span><span>
-                    <input type="text" name="last_name" id="last_name" placeholder="Apellido" value="<%= usuario.%>"></span></p>
-                    <input type="email" name="email" id="email" placeholder="tucorreo@email.com" value="<%= usuario.%>">
+                <p><span><input type="text" name="first_name" id="first_name" placeholder="Nombre" value="<%= envio.%>"></span><span>
+                    <input type="text" name="last_name" id="last_name" placeholder="Apellido" value="<%= envio.%>"></span></p>
+                    <input type="email" name="email" id="email" placeholder="tucorreo@email.com" value="<%= envio.%>">
                     <input type="text" name="password" id="password" placeholder="Contraseña">
                     <div class="image-uploa">
                         <label for="file-input">

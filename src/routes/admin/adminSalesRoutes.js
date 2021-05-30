@@ -5,18 +5,8 @@ const path = require('path');
 const { body } = require('express-validator');
 const adminSalesControllers = require('../../controllers/admin/adminSalesControllers');
 const userLogged = require('../../middlewares/userLogged');
-const userAdmin = require('../../middlewares/userAdmin');
 const userSuperAdmin = require('../../middlewares/userSuperAdmin');
-
-let storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.resolve(__dirname, '../../public/img'));
-    },
-    filename: function (req, file, cb) {
-      cb(null, 'producto-'+Date.now()+path.extname(file.originalname))
-  }
-})
-const upload = multer({ storage })
+const userSales = require('../../middlewares/userSales');
 
 const validacionesEdit = [
     body('articulo').isEmpty().withMessage('El campo Articulo no puede estar vacio'),
@@ -31,31 +21,6 @@ const validacionesEdit = [
     body('sku').isEmpty().withMessage('El campo Codigo de barra no puede estar vacio'),
     body('descuento').isEmpty().withMessage('El campo Descuento no puede estar vacio'),
     body('precio').isEmpty().withMessage('El campo Precio no puede estar vacio'),
-];
-
-const validacionesImagenEdit = [
-body('imagen').custom((value, {req}) =>{
-
-        if (req.file == undefined) return false;
-
-            return true;
-  }).withMessage('Debe cargar una imagen válida')
-  .bail()
-  .custom((value, {req}) =>{
-
-            let filetype = req.file.mimetype
-            switch (filetype) {
-                case 'image/jpg':
-                    return true;
-                case 'image/jpeg':
-                    return true;
-                case  'image/png':
-                    return true;
-                default:
-                    return false;
-
-        }
-  }).withMessage('Debe elegir una imagen en formato: .JPG ó JPEG ó PNG')
 ];
 
 const validacionesCreate = [
@@ -73,32 +38,13 @@ const validacionesCreate = [
     body('precio').isEmpty().withMessage('El campo Precio no puede estar vacio'),
 ];
 
-const validacionesImagenCreate = [
-    body('imagen').custom((value, {req,}) =>{
-        if(req.file == undefined){
-            let filetype = req.file.mimetype
-            switch (filetype) {
-                case 'image/jpg':
-                    return false;
-                case 'image/jpeg':
-                    return false;
-                case  'image/png':
-                    return false;
-                default:
-                    return true;
-        }
-    }}).withMessage('Debe elegir una imagen en formato: .JPG ó JPEG ó PNG')
-];
+router.get('/admin/ventas', userLogged, userSales, adminSalesControllers.sales)
+
+router.get('/admin/ventas/ventas', userLogged, userSales, adminSalesControllers.sales)
+router.get('/admin/ventas/editar/:id', userLogged, userSuperAdmin, adminSalesControllers.edit);
+router.put('/admin/ventas/editar/:id', userLogged, userSuperAdmin,validacionesEdit, adminSalesControllers.update);
 
 
-router.get('/admin/usuarios', userLogged, userSuperAdmin, adminSalesControllers.users)
-
-router.get('/admin/crearAdmin', userLogged, userAdmin, adminSalesControllers.createAdmin);
-router.post('/admin/crearAdmin', userLogged, userAdmin, validacionesCreate, upload.single('imagen'), validacionesImagenCreate, adminSalesControllers.saveAdmin);
-
-router.get('/admin/editarUsuario/:id', userLogged, userAdmin, adminSalesControllers.editUser);
-router.put('/admin/editarUsuario/:id', userLogged, userAdmin,validacionesEdit, upload.single('imagen'), validacionesImagenEdit, adminSalesControllers.updateUser);
-
-router.delete('/admin/eliminarUsuario/:id',userLogged, userAdmin, adminSalesControllers.deleteUser);
+router.delete('/admin/ventas/eliminar/:id',userLogged, userSuperAdmin, adminSalesControllers.delete);
 
 module.exports = router;

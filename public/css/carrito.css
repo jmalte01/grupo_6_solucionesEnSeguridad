@@ -16,9 +16,9 @@ main h1{
 
 .selec{display: inline-block;cursor: pointer;user-select: none;font-size: 25px;padding: 5px;}
 .selec.selectmenos{margin-right: 8px;font-size: 30px}
-.selec.selecmas{margin-left: 8px;}
+.selec.selecmas{margin-left: 8px;font-size: 30px}
 .quantity-input{border: none;border: none;padding: 8px;text-align: center;width: 50px;outline: none;display: inline-block;position: relative;top: -4px;}
-.cajaselect{display: inline-block;margin:auto;padding-right: 15px;padding-top: 10px;background-color: #274C77;border-radius: 10px;}
+.cajaselect{display: inline-block;margin:auto;padding: 5px;background-color: #274C77;border-radius: 10px;}
 
 
 #txtalileft{

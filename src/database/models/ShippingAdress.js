@@ -22,12 +22,18 @@ module.exports =  (sequelize, dataTypes) => {
 
     
     ShippingAdress.associate = function (models) {
-        ShippingAdress.belongsTo(models.User,
-            {
+        ShippingAdress.belongsTo(models.User,{
                 as: "user",
                 foreingKey: "userId"
             }
         );
+    }
+
+    ShippingAdress.associate = function (models) {
+        ShippingAdress.hasMany(models.ShippingOrder,{
+            as: "shippingAdress",
+            foreingKey: "shippingAdressId"
+        });
     }
 
     return ShippingAdress;

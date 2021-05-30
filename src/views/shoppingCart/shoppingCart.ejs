@@ -21,18 +21,16 @@
                 <th>Unidad</th>
                 <th>Total</th>
             </tr>
-            <%  productos.forEach( producto => { %>
+            <%  items.forEach( item => { %>
                 <tr class="articulo">
                     <td class="bin"><i class="fas fa-trash-alt"></i></td>
-                    <td id=txtalileft><%= producto.productName %></td>
-                    <td class="imagenes"><img src="/img/<%= producto.image %>" alt=""></td>
+                    <td id=txtalileft><%= item.productName %></td>
+                    <td class="imagenes"><img src="/img/<%= item.image %>" alt=""></td>
                     <td><div class="cajaselect">
-                        <span class="selec selectmenos icon icon-minus"><i class="fas fa-minus-square"></i></span>
-                        <input type="text" id="quantity" name="cantidad" value="1" min="1" class="quantity-selector quantity-input" readonly="">
-                        <span class="selec selecmas icon icon-plus"><i class="fas fa-plus-square"></i></span>
+                        <input type="text" id="quantity" name="cantidad" value="1" min="1" class="quantity-selector quantity-input">
                     </div></td>
-                    <td><%= producto.price %></td>
-                    <td><%= producto.price %></td>
+                    <td><%= item.productId.price %></td>
+                    <td><%= item.price %></td>
                 </tr>
             <% }); %>
             <tr class="articulo">
@@ -41,7 +39,7 @@
                 <td class="imagenes"></td>
                 <td></td>
                 <td></td>
-                <td><button type="button" class="btn btn-primary">Comprar</button></td>
+                <td><form action="/carrito/comprar" method="post"><button type="submit" class="btn btn-primary">Comprar</button></form></td>
             </tr>
         </table>
     </main>

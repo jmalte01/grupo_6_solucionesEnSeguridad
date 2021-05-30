@@ -6,6 +6,7 @@ const { body } = require('express-validator');
 const adminPaymentControllers = require('../../controllers/admin/adminPaymentControllers');
 const userLogged = require('../../middlewares/userLogged');
 const userAdmin = require('../../middlewares/userAdmin');
+const userPayments = require('../../middlewares/userPayments');
 const userSuperAdmin = require('../../middlewares/userSuperAdmin');
 
 let storage = multer.diskStorage({
@@ -91,14 +92,10 @@ const validacionesImagenCreate = [
 ];
 
 
-router.get('/admin/usuarios', userLogged, userSuperAdmin, adminPaymentControllers.users)
+router.get('/admin/pagos', userLogged, userPayments, adminPaymentControllers.payments)
 
-router.get('/admin/crearAdmin', userLogged, userAdmin, adminPaymentControllers.createAdmin);
-router.post('/admin/crearAdmin', userLogged, userAdmin, validacionesCreate, upload.single('imagen'), validacionesImagenCreate, adminPaymentControllers.saveAdmin);
+router.get('/admin/pagos/detalle', userLogged, userPayments, adminPaymentControllers.detail)
 
-router.get('/admin/editarUsuario/:id', userLogged, userAdmin, adminPaymentControllers.editUser);
-router.put('/admin/editarUsuario/:id', userLogged, userAdmin,validacionesEdit, upload.single('imagen'), validacionesImagenEdit, adminPaymentControllers.updateUser);
-
-router.delete('/admin/eliminarUsuario/:id',userLogged, userAdmin, adminPaymentControllers.deleteUser);
+router.delete('/admin/eliminarUsuario/:id',userLogged, userSuperAdmin, adminPaymentControllers.delete);
 
 module.exports = router;

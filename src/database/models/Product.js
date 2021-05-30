@@ -82,5 +82,13 @@ module.exports =  function(sequelize, dataTypes) {
     //     );
     // }
 
+
+    Product.associate = function (models) {
+        Product.hasMany(models.ShoppingCartItem,{
+            as: "shoppingCartItems",
+            foreingKey: "productId"
+        });
+    }
+
     return Product;
 }

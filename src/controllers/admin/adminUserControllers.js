@@ -7,6 +7,12 @@ const Subcategories = db.Subcategory;
 const Users = db.User;
 
 const adminUserControllers = {
+    admin: (req, res) => {
+        res.render(path.resolve(__dirname, '../../views/admin/admin'), {
+            styles: ["index.css", "footer.css", "newProduct.css"],
+            title: "Crear usuario adminstrador"
+        })
+    },
     users: (req, res) => {
         Users.findAll()
         .then ((usuarios)=>{res.render(path.resolve(__dirname, '../../views/admin/users/handleUsers'), {

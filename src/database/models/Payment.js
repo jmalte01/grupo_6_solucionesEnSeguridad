@@ -8,8 +8,8 @@ module.exports =  (sequelize, dataTypes) => {
         },
         userId: {type: dataTypes.INTEGER},
         orderId: {type: dataTypes.INTEGER},
-        payMetod: {type: dataTypes.INTEGER},
-        payInfo: {type: dataTypes.INTEGER},
+        payMethod: {type: dataTypes.INTEGER},
+        payInfo: {type: dataTypes.TEXT},
 
     }
     let config = {
@@ -34,6 +34,13 @@ module.exports =  (sequelize, dataTypes) => {
                 foreingKey: "orderId"
             }
         );
+    }
+
+    Payment.associate = function (models) {
+        Payment.hasMany(models.Order,{
+            as: "payment",
+            foreingKey: "paymenId"
+        });
     }
 
     return Payment;

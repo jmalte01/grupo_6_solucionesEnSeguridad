@@ -73,32 +73,15 @@ const validacionesCreate = [
     body('precio').isEmpty().withMessage('El campo Precio no puede estar vacio'),
 ];
 
-const validacionesImagenCreate = [
-    body('imagen').custom((value, {req,}) =>{
-        if(req.file == undefined){
-            let filetype = req.file.mimetype
-            switch (filetype) {
-                case 'image/jpg':
-                    return false;
-                case 'image/jpeg':
-                    return false;
-                case  'image/png':
-                    return false;
-                default:
-                    return true;
-        }
-    }}).withMessage('Debe elegir una imagen en formato: .JPG ó JPEG ó PNG')
-]
-
 
 router.get('/admin/productos', userLogged, userAdmin, adminProductControllers.products);
 
-router.get('/admin/crearProducto', userLogged, userAdmin, adminProductControllers.createProduct);
-router.post('/admin/crearProducto', userLogged, userAdmin, validacionesCreate, upload.single('imagen'), validacionesImagenCreate, adminProductControllers.saveProduct);
+router.get('/admin/productos/crear', userLogged, userAdmin, adminProductControllers.createProduct);
+router.post('/admin/productos/crear', userLogged, userAdmin, validacionesCreate, adminProductControllers.saveProduct);
 
-router.get('/admin/editarProducto/:id', userLogged, userAdmin, adminProductControllers.editProduct);
-router.put('/admin/editarProducto/:id', userLogged, userAdmin,validacionesEdit, upload.single('imagen'), validacionesImagenEdit, adminProductControllers.updateProduct);
+router.get('/admin/productos/editar/:id', userLogged, userAdmin, adminProductControllers.editProduct);
+router.put('/admin/productos/editar/:id', userLogged, userAdmin,validacionesEdit, adminProductControllers.updateProduct);
 
-router.delete('/admin/eliminarProducto/:id',userLogged, userAdmin, adminProductControllers.deleteProduct);
+router.delete('/admin/productos/eliminar/:id',userLogged, userAdmin, adminProductControllers.deleteProduct);
 
 module.exports = router;

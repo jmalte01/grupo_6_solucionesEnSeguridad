@@ -4,8 +4,7 @@ module.exports = function(sequelize, dataTypes){
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
+            autoIncrement: true
         },       
         salePrice: {
             type: dataTypes.DECIMAL,
@@ -31,7 +30,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        cartId: {
+        orderId: {
             type: dataTypes.INTEGER,
         }
     }
@@ -44,20 +43,20 @@ module.exports = function(sequelize, dataTypes){
 
     shoppingCartItems.associate = function (models){
         shoppingCartItems.belongsTo(models.Product, {
-            as: "Product",
+            as: "product",
             foreignKey: "productId",
         });
     }
     shoppingCartItems.associate = function (models){    
         shoppingCartItems.belongsTo(models.User, {
-            as: "User",
+            as: "user",
             foreignKey: "userId",
         });
     }
     shoppingCartItems.associate = function (models){
         shoppingCartItems.belongsTo(models.Order, {
-            as: "ShoppingCart",
-            foreignKey: "cartId",
+            as: "order",
+            foreignKey: "orderId",
         });
     }
 

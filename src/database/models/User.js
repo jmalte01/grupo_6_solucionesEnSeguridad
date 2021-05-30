@@ -45,5 +45,42 @@ module.exports =  (sequelize, DataTypes) => {
         timestamps: false
     }
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = function (models) {
+        User.hasMany(models.Order,{
+            as: "user",
+            foreingKey: "userId"
+        });
+    }
+
+    
+    User.associate = function (models) {
+        User.hasMany(models.Payment,{
+            as: "user",
+            foreingKey: "userId"
+        });
+    }
+
+    User.associate = function (models) {
+        User.hasMany(models.ShippingAdress,{
+            as: "user",
+            foreingKey: "userId"
+        });
+    }
+
+    User.associate = function (models) {
+        User.hasMany(models.ShippingOrder,{
+            as: "user",
+            foreingKey: "userId"
+        });
+    }
+
+    User.associate = function (models) {
+        User.hasMany(models.ShoppingCartItem,{
+            as: "user",
+            foreingKey: "userId"
+        });
+    }
+    
     return User;
 }
