@@ -1,0 +1,367 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@lrodriguez86 
+jmalte01
+/
+grupo_6_solucionesEnSeguridad
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+grupo_6_solucionesEnSeguridad/public/css/index.css
+@ramiro-e
+ramiro-e cambios homepage
+Latest commit 11cfd42 in 2 hours
+ History
+ 3 contributors
+@ramiro-e@lrodriguez86@jmalte01
+259 lines (229 sloc)  3.86 KB
+  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #e7ecef;
+}
+
+header {
+  height: 80px;
+  background-color: #274c77;
+  padding: 10px 0;
+}
+
+a {
+  color: #274c77;
+  text-decoration: none;
+}
+
+.menu-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+.logo-img {
+  max-height: 60px;
+}
+.menu-icon {
+  font-size: 2.4em;
+  color: #ffffff;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+   /* height: 60px; */
+  }
+
+
+}
+
+@media (min-width: 768px) {
+  nav {
+    top: 0px;
+  }
+}
+
+nav {
+  position: relative;
+  background: #274c77;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+}
+
+nav ul {
+  list-style-type: none;
+  max-height: 300px;
+ /* overflow: hidden; */
+  transition: all 0.5s;
+}
+
+.yale {
+  background: #274c77 !important;
+}
+
+.white {
+  color: #dae1e7 !important;
+}
+
+.blue {
+  color: #274c77 !important;
+  text-align: center;
+}
+
+nav ul li {
+  padding: 0 15px;
+}
+nav ul li a {
+  display: inline-block;
+  padding: 4px;
+  /* Add your custom styles below to change appearance of links */
+  color: #dae1e7;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+nav ul li a:hover,
+nav ul li a:focus {
+  color: #a3cef1 !important;
+}
+@media (max-width: 768px) {
+#navbarNavDropdown {
+  height: 400px;
+}
+}
+
+#checkbox {
+  display: none;
+}
+#checkbox:checked ~ nav ul {
+  max-height: 200px;
+  padding: 15px 0;
+  transition: all 0.5s;
+  display: none;
+}
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+background-color: #274c77 !important;
+    text-decoration: underline;
+}
+
+.navbar-nav .dropdown-menu{
+  background: #274c77 !important;
+    text-decoration: underline;
+}
+
+
+@media (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
+  nav {
+    position: relative;
+    top: -10px;
+    background-color: transparent;
+  }
+  nav ul {
+    max-height: 300px;
+    padding: 15px 0;
+    text-align: right;
+    background: #274c77 !important;
+  }
+  nav ul li {
+    display: inline-flex;
+    padding-left: 20px;
+  }
+}
+
+h1 {
+  font-size: 2.2em;
+  text-align: center;
+  padding: 60px 40px 30px;
+  color: #3d4852;
+  line-height: 1.2;
+}
+p {
+  line-height: 1.6;
+  font-size: 1.2em;
+
+  color: #3d4852;
+}
+
+img {
+  max-width: 100%;
+}
+
+.buscar {
+  display: flex;
+  justify-content: center;
+  background-color: #274c77;
+  padding: 0.5em 0;
+}
+
+@media (max-width: 768px) {
+.boton-buscar {
+  display: none;
+}}
+
+.catalogo-item {
+  margin-left: 10px;
+}
+
+.busqueda{
+  background-color: white;
+  padding: 0.2em 0.5em;
+  border-radius: 10px;
+}
+
+.busqueda input {
+  outline: none; border:none; background-color: none;
+  height: 30px;
+  width: 90vw;
+}
+
+.busqueda button{
+  outline: none; border: none; background-color: white;
+}
+
+.busqueda i{
+  color: #8b8c89;
+}
+
+/*main */
+.ofertas {
+  text-align: center;
+}
+
+/* mobile phone */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-content: center;
+  padding: 1em;
+}
+/*
+.flex-item-1 {
+  background: indianred;
+}
+.flex-item-2 {
+  background: blue;
+}
+.flex-item-3 {
+  background: tomato;
+}
+.flex-item-4 {
+  background: coral;
+}*/
+
+.flex-item {
+ /* flex: calc(25% - 1em);*/
+  width: 100%; 
+  margin-bottom: 3rem;
+  background-color: #ececef;
+  padding-top: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px 0px rgba(123,123,123,0.75);
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(123,123,123,0.75);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(123,123,123,0.75);
+}
+.flex-item:hover{
+  box-shadow: 0px 0px 12px 0px rgba(54,54,54,0.75);
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(54,54,54,0.75);
+  -moz-box-shadow: 0px 0px 12px 0px rgba(54,54,54,0.75);
+  transition: all 0.5s;
+}
+
+/* tablet */
+@media screen and (min-width: 640px) {
+  .flex-item {
+    flex: calc(50% - 1em);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+    .busqueda input {
+    width: 40vw;
+  }
+}
+
+/* desktop */
+@media screen and (min-width: 960px) {
+  .flex-item {
+    flex: calc(25% - 1em);
+  }
+}
+
+.detalles {
+  text-align: left;
+  color: #274c77;
+  padding: 0.5em;
+}
+
+.nombre{
+  font-size: 20px;
+}
+
+.descripcion{
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 50px;
+}
+
+.precio-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color:white;
+  border-radius: 10px;
+  height: 30px
+  
+}
+
+
+
+.verMas{
+  border: none; outline: none; 
+  background-color: white;
+  padding: 0 5px;
+  border-radius: 10px;
+  border: 3px #6096ba solid;
+  font-weight: 600;
+  color: #6096ba;
+}
+
+.verMas:hover{
+  background-color: #6096ba;
+  color: white;
+  transition: all 0.3s;
+}
+
+.precio {
+  margin-right: 0.5em;
+}
+
+.map{
+  height: 400px;
+  width: 100%;
+}
+
+.search-result {
+  flex: inherit !important;
+  max-width: 313px !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .white-top {
+  color: white !important;
+  padding-top: 8px;
+}
+}
+
+.white-top:hover {
+  text-decoration: underline;
+}

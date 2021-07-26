@@ -1,0 +1,67 @@
+
+        <nav class="navbar navbar-expand-lg navbar-light yale">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/"><img src="/img/ses.jpg" /></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav white">
+                  <li class="nav-item white">
+                    <a class="nav-link active white" aria-current="page" href="/">Inicio</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle white" href="/catalogo" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Catálogo
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item white" href="/catalogo">Todos</a></li>  
+                        <li><a class="dropdown-item white" href="/categoria/1">Cámaras</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/2">Vigilancia</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/3">Acceso</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/4">Conectividad</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/5">Intrusión</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/6">Portería</a></li>
+                        <li><a class="dropdown-item white" href="/categoria/7">Accesorios</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <% if(parseInt(locals.usuario.role) >= 3)%>
+                    <a class="nav-link dropdown-toggle white" href="/catalogo" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Administrar
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <% if(parseInt(locals.usuario.role) === 3 || parseInt(locals.usuario.role) === 7) { %>
+                        <li><a class="dropdown-item white" href="/admin/pagos">Pagos</a></li>
+                      <%}%>
+                      <% if(parseInt(locals.usuario.role) === 4 || parseInt(locals.usuario.role) === 7) { %>
+                        <li><a class="dropdown-item white" href="/admin/ventas">Ventas</a></li>
+                      <%}%>
+                      <% if(parseInt(locals.usuario.role) === 5 || parseInt(locals.usuario.role) === 7) { %>
+                        <li><a class="dropdown-item white" href="/admin/envios">Envios</a></li>
+                      <%}%>
+                      <% if(parseInt(locals.usuario.role) === 6 || parseInt(locals.usuario.role) === 7) { %>
+                        <li><a class="dropdown-item white" href="/admin/productos">Productos</a></li>
+                      <%}%>
+                      <% if(parseInt(locals.usuario.role) === 7) { %>
+                        <li><a class="dropdown-item white" href="/admin/usuarios">Usuarios</a></li>
+                      <%}%>
+                    </ul> 
+                  </li>
+                  </li>
+                  <% if(locals.usuario) { %>
+                    <li><a class="white-top" href="/logout">Cerrar Sesión</a></li>
+                  <% } else { %>  
+                    <li ><a class="white-top" href="/register">Registro</a></li>
+                    <li><a class="white-top" href="/login">Iniciar Sesión</a></li>
+                  <%}%> 
+                </ul>
+                <form action="/search" method="POST" class="d-flex">
+                    <input type="text" placeholder="Buscar productos" name="search" class="form-control me-2">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    
+                </form>
+                <a class="nav-link white" href="/carrito"><span><i class="fa fa-shopping-cart"></i></span></a>
+              </div>
+            </div>
+          </nav>

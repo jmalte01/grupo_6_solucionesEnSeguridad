@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head'); %>
+<body>
+    <%- include('../../partials/header') %>
+    <main>
+        <% if(typeof(errors) != 'undefined'){%>
+            <ul class="alert alert-danger">
+               <% errors.forEach(error => { %>
+                  <li><%= error.msg%></li>
+               <%});%>
+             </ul>
+         <%}%>    
+        <h2 class="blue">Agregar un nuevo producto</h2>
+        <form action="/admin/crearProducto" method="POST" onsubmit=" return validaciones()" enctype="multipart/form-data" id="formulario">
+            <label for="articulo">Articulo</label>
+            <input type="text" name="articulo">
+            <label for="descripcion">Describir</label>
+            <input type="text" name="descripcion">
+            <label for="detalles">Detalles</label>
+            <textarea name="detalles" placeholder="Detalles del producto"></textarea>
+            <label for="imagenes">Imagenes</label>
+            <input type="file" name="imagen">
+            <label for="categoria">Categoria</label>
+            <select name="categoria" id="">
+                <% allCategories.forEach( categoria => { %>
+                    <option value="<%= categoria.id %>"><%= categoria.name %></option>
+                <% }); %>
+            </select>
+            <label for="subcategoria">Subcategoria</label>
+            <select name="subcategoria" id="">
+                <% allSubcategories.forEach( subcategoria => { %>
+                    <option value="<%= subcategoria.id %>"><%= subcategoria.name %></option>
+                <% }); %>
+            </select>
+            <label for="precio">Precio</label>
+            <input type="text" name="precio">
+            <label for="descuento">Descuento</label>
+            <input type="text" name="descuento">
+            <label for="stock">Stock</label>
+            <input type="text" name="stock">
+            <label for="status">Estado</label>
+            <input type="text" name="status">
+            <label for="sku">Codigo de barra</label>
+            <input type="text" name="sku">
+            <button type="submit">Crear Producto</button>
+        </form>
+    </main>
+    <%- include('../../partials/footer') %>
+    <script src="js/createEditProduct.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+#formulario{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color:#e7ecef;
+  padding: 25px;
+  border-radius: 10px;
+  width: 95%;
+}
+
+#formulario input{
+  width: 100%;
+  margin: auto;
+  border:none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#formulario label{
+  width: 100%;
+  margin: auto;
+  font-size: 12px;
+  color: #666;
+  margin: 10px 0 5px;
+}
+
+#formulario select{width: 100%;}
+
+
+#formulario input[type="file"]{
+  color: none;
+}
+
+
+@media (min-width: 369px) {
+  #formulario {
+    width: 85%;
+  }
+
+}
+    
+@media (min-width: 980px) {
+    #formulario {
+      width: 20%;
+    }
+}
+  
+  
